@@ -1,0 +1,7 @@
+api_version: sim.tool/v1
+kind: ToolSpec
+
+metadata:
+  name: object_detection
+  display_name: Object Detection
+  description: Detect objects in an image.

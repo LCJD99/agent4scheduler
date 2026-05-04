@@ -565,6 +565,12 @@ git add README.md docs/plans/2026-05-04-online-scheduler-sim-design.md docs/plan
 git commit -m "docs: finalize simulator implementation guidance"
 ```
 
+## Task 12 Completion Notes
+
+- `README.md` documents the current CLI entrypoint, the scenario -> task -> tool config layout, and the single trace artifact emitted by the implemented flow.
+- `docs/plans/2026-05-04-online-scheduler-sim-design.md` now distinguishes between the target architecture and the currently implemented minimal path.
+- This cleanup intentionally does not claim that a full simulator loop, runtime execution pipeline, or complete trace suite exists yet.
+
 Plan complete and saved to `docs/plans/2026-05-04-online-scheduler-sim.md`. Two execution options:
 
 **1. Subagent-Driven (this session)** - dispatch a fresh subagent per task, review between tasks, fast iteration

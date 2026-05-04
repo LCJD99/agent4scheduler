@@ -1,0 +1,9 @@
+from scheduler_sim.trace.writer import TraceWriter
+
+
+def test_trace_writer_emits_required_files(tmp_path):
+    writer = TraceWriter(output_dir=tmp_path)
+
+    writer.write_experiment_meta({"experiment_id": "exp_001"})
+
+    assert (tmp_path / "experiment_meta.json").exists()

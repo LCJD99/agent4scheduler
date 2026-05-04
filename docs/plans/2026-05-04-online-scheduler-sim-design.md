@@ -7,6 +7,17 @@
 - `docs/meta/config.md`
 - `docs/meta/trace.md`
 
+## Current Implementation Snapshot
+
+As of Task 12, the repository implements a minimal online bootstrap rather than the full architecture described below.
+
+- The CLI accepts `--scenario` and `--trace-output`.
+- Scenario loading resolves a scenario file plus its referenced task and tool files.
+- The end-to-end path writes `experiment_meta.json` containing the scenario name.
+- A fixed-tick runtime loop, scheduler-to-runtime execution cycle, and the larger trace set are still planned work.
+
+The rest of this document describes the intended target design, not a claim that every component is fully implemented today.
+
 ## 1. Goal
 
 本设计定义一个仅覆盖在线阶段的调度模拟器，用于验证如下问题：

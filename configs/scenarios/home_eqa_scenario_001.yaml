@@ -1,0 +1,9 @@
+api_version: sim.scenario/v1
+kind: ScenarioSpec
+
+metadata:
+  name: home_eqa_scenario_001
+  description: Minimal scenario spec for home EQA.
+
+tasks:
+  - configs/tasks/safe_navigation_task.yaml

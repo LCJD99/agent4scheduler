@@ -1,0 +1,9 @@
+api_version: sim.task/v1
+kind: TaskSpec
+
+metadata:
+  name: safe_navigation_task
+  description: Minimal task spec for safe navigation.
+
+tools:
+  - configs/tools/object_detection.yaml
