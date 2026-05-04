@@ -4,7 +4,10 @@ from scheduler_sim.scheduler.base import RunnableNode, Scheduler, SchedulerDecis
 class HeuristicScheduler(Scheduler):
     def decide(self, observation: SchedulerObservation) -> SchedulerDecision:
         selected_nodes = sorted(observation.runnable_nodes, key=self._priority_key)
-        return SchedulerDecision(selected_nodes=selected_nodes)
+        return SchedulerDecision(
+            selected_nodes=selected_nodes,
+            timestamp_us=observation.timestamp_us,
+        )
 
     def _priority_key(self, node: RunnableNode) -> tuple[int, str]:
         criticality_rank = {

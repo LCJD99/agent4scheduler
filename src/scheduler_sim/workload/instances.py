@@ -5,6 +5,8 @@ from dataclasses import dataclass
 class WorkloadRelease:
     node_id: str
     source: str
+    criticality: str
+    predicted_latency_us: int
     timestamp_us: int
 
 
@@ -12,9 +14,13 @@ class WorkloadRelease:
 class CriticalTaskSpec:
     node_id: str
     period_us: int
+    criticality: str
+    predicted_latency_us: int
 
 
 @dataclass(slots=True)
 class AgentArrivalSpec:
     node_id: str
     arrival_time_us: int
+    criticality: str
+    predicted_latency_us: int

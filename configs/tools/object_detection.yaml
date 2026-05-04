@@ -5,3 +5,4 @@ metadata:
   name: object_detection
   display_name: Object Detection
   description: Detect objects in an image.
+  default_predicted_latency_us: 2000

@@ -15,18 +15,27 @@ class WorkloadGenerator:
     @classmethod
     def critical_only(cls, node_id: str, period_us: int) -> "WorkloadGenerator":
         return cls(
-            critical_tasks=[CriticalTaskSpec(node_id=node_id, period_us=period_us)],
+            critical_tasks=[
+                CriticalTaskSpec(
+                    node_id=node_id,
+                    period_us=period_us,
+                    criticality="high",
+                    predicted_latency_us=period_us,
+                )
+            ],
         )
 
     def release(self, timestamp_us: int) -> list[WorkloadRelease]:
         releases: list[WorkloadRelease] = []
 
         for task in self.critical_tasks:
-            if timestamp_us > 0 and timestamp_us % task.period_us == 0:
+            if timestamp_us % task.period_us == 0:
                 releases.append(
                     WorkloadRelease(
                         node_id=task.node_id,
                         source="critical",
+                        criticality=task.criticality,
+                        predicted_latency_us=task.predicted_latency_us,
                         timestamp_us=timestamp_us,
                     )
                 )
@@ -37,6 +46,8 @@ class WorkloadGenerator:
                     WorkloadRelease(
                         node_id=arrival.node_id,
                         source="agent",
+                        criticality=arrival.criticality,
+                        predicted_latency_us=arrival.predicted_latency_us,
                         timestamp_us=timestamp_us,
                     )
                 )

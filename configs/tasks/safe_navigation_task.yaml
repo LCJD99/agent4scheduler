@@ -7,3 +7,9 @@ metadata:
 
 tools:
   - configs/tools/object_detection.yaml
+
+critical_nodes:
+  - node_id: perception.object_detection
+    period_us: 5000
+    criticality: high
+    predicted_latency_us: 2000
