@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from scheduler_sim.domain.resources import ResourceVector
+
 
 @dataclass(slots=True)
 class Metadata:
@@ -8,10 +10,10 @@ class Metadata:
 
 @dataclass(slots=True)
 class AgentRequestSpec:
-    node_id: str
+    request_id: str
+    user_request: str
     arrival_time_us: int
     criticality: str
-    predicted_latency_us: int
 
 
 @dataclass(slots=True)
@@ -20,11 +22,14 @@ class CriticalNodeSpec:
     period_us: int
     criticality: str
     predicted_latency_us: int
+    resource_demand: ResourceVector
 
 
 @dataclass(slots=True)
 class ToolSpec:
     metadata: Metadata
+    default_predicted_latency_us: int
+    default_resource_demand: ResourceVector
 
 
 @dataclass(slots=True)
@@ -40,6 +45,7 @@ class ScenarioSpec:
     task_refs: list[str]
     tick_us: int
     duration_us: int
+    system_capacity: ResourceVector
     agent_requests: list[AgentRequestSpec]
 
 

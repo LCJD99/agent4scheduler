@@ -18,6 +18,12 @@ class TraceWriter:
     def write_workload_event(self, payload: TracePayload) -> None:
         self._append_jsonl("workload_events.jsonl", payload)
 
+    def write_task_definition(self, payload: TracePayload) -> None:
+        self._append_jsonl("task_definitions.jsonl", payload)
+
+    def write_task_outcome(self, payload: TracePayload) -> None:
+        self._append_jsonl("task_outcomes.jsonl", payload)
+
     def write_scheduler_observation(self, payload: TracePayload) -> None:
         self._append_jsonl("scheduler_observation.jsonl", payload)
 

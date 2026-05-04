@@ -7,12 +7,15 @@ metadata:
 
 tick_us: 1000
 duration_us: 10000
+system_capacity:
+  cpu_cores: 2.0
+  memory_mb: 1024
 
 tasks:
   - configs/tasks/safe_navigation_task.yaml
 
 agent_requests:
-  - node_id: agent-home-eqa-request-001
+  - request_id: agent-home-eqa-request-001
+    user_request: What objects are on the table?
     arrival_time_us: 2000
     criticality: low
-    predicted_latency_us: 3000

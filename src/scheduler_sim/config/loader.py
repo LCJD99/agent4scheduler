@@ -12,6 +12,7 @@ from scheduler_sim.config.models import (
     TaskSpec,
     ToolSpec,
 )
+from scheduler_sim.domain.resources import ResourceVector
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -65,7 +66,13 @@ def _load_yaml(path: Path) -> dict[str, Any]:
 
 
 def _build_tool_spec(data: dict[str, Any]) -> ToolSpec:
-    return ToolSpec(metadata=_build_metadata(data))
+    return ToolSpec(
+        metadata=_build_metadata(data),
+        default_predicted_latency_us=_require_int(data, "default_predicted_latency_us"),
+        default_resource_demand=_build_resource_vector(
+            data.get("default_resource_demand", {})
+        ),
+    )
 
 
 def _build_task_spec(data: dict[str, Any]) -> TaskSpec:
@@ -85,6 +92,7 @@ def _build_scenario_spec(data: dict[str, Any]) -> ScenarioSpec:
         task_refs=list(data.get("tasks", [])),
         tick_us=_require_int(data, "tick_us"),
         duration_us=_require_int(data, "duration_us"),
+        system_capacity=_build_resource_vector(data.get("system_capacity", {})),
         agent_requests=[
             _build_agent_request_spec(item)
             for item in data.get("agent_requests", [])
@@ -102,10 +110,10 @@ def _build_metadata(data: dict[str, Any]) -> Metadata:
 
 def _build_agent_request_spec(data: dict[str, Any]) -> AgentRequestSpec:
     return AgentRequestSpec(
-        node_id=_require_str(data, "node_id"),
+        request_id=_require_str(data, "request_id"),
+        user_request=_require_str(data, "user_request"),
         arrival_time_us=_require_int(data, "arrival_time_us"),
         criticality=_require_str(data, "criticality"),
-        predicted_latency_us=_require_int(data, "predicted_latency_us"),
     )
 
 
@@ -115,6 +123,19 @@ def _build_critical_node_spec(data: dict[str, Any]) -> CriticalNodeSpec:
         period_us=_require_int(data, "period_us"),
         criticality=_require_str(data, "criticality"),
         predicted_latency_us=_require_int(data, "predicted_latency_us"),
+        resource_demand=_build_resource_vector(data.get("resource_demand", {})),
+    )
+
+
+def _build_resource_vector(data: dict[str, Any]) -> ResourceVector:
+    if not isinstance(data, dict):
+        raise ValueError("Resource vector must be a mapping")
+
+    return ResourceVector(
+        cpu_cores=_read_number(data, "cpu_cores"),
+        memory_mb=_read_int(data, "memory_mb"),
+        gpu_vram_mb=_read_int(data, "gpu_vram_mb"),
+        network_mbps=_read_number(data, "network_mbps"),
     )
 
 
@@ -130,3 +151,17 @@ def _require_str(data: dict[str, Any], key: str) -> str:
     if not isinstance(value, str) or not value:
         raise ValueError(f"Config field {key} must be a non-empty string")
     return value
+
+
+def _read_int(data: dict[str, Any], key: str) -> int:
+    value = data.get(key, 0)
+    if not isinstance(value, int):
+        raise ValueError(f"Config field {key} must be an integer")
+    return value
+
+
+def _read_number(data: dict[str, Any], key: str) -> float:
+    value = data.get(key, 0.0)
+    if not isinstance(value, int | float):
+        raise ValueError(f"Config field {key} must be numeric")
+    return float(value)
