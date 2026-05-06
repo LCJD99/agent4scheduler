@@ -16,8 +16,14 @@ class RunnableNode:
 
 
 @dataclass(slots=True)
+class RunningNode(RunnableNode):
+    started_at_us: int = 0
+
+
+@dataclass(slots=True)
 class SchedulerObservation:
     runnable_nodes: list[RunnableNode]
+    running_nodes: list[RunningNode] = field(default_factory=list)
     timestamp_us: int = 0
     available_resources: ResourceVector = field(default_factory=ResourceVector)
 

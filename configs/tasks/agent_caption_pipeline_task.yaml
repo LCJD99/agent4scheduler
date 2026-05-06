@@ -1,0 +1,13 @@
+api_version: sim.task/v1
+kind: TaskSpec
+
+metadata:
+  name: agent_caption_pipeline_task
+  description: Fixed agent caption, translation, and speech pipeline.
+
+tools:
+  - configs/tools/image_captioning.yaml
+  - configs/tools/text_translation.yaml
+  - configs/tools/text_to_speech.yaml
+
+critical_nodes: []

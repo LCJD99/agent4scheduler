@@ -1,10 +1,11 @@
 import argparse
+from datetime import datetime
 from pathlib import Path
 
 from scheduler_sim.config.loader import load_scenario_bundle
 from scheduler_sim.runtime.control_plane import SchedulerControlPlane
 from scheduler_sim.runtime.engine import RuntimeEngine
-from scheduler_sim.scheduler.base import RunnableNode, SchedulerObservation
+from scheduler_sim.scheduler.base import RunningNode, RunnableNode, SchedulerObservation
 from scheduler_sim.scheduler.heuristic import HeuristicScheduler
 from scheduler_sim.trace.writer import TraceWriter
 from scheduler_sim.workload.generator import WorkloadGenerator
@@ -29,6 +30,8 @@ def main(argv: list[str] | None = None) -> int:
 
     args = build_parser().parse_args(argv)
     bundle = load_scenario_bundle(args.scenario)
+    trace_run_id = datetime.now().strftime("%Y%m%d-%H%M%S")
+    trace_output_dir = Path(args.trace_output) / trace_run_id
     generator = _build_workload_generator(bundle)
     scheduler = HeuristicScheduler()
     runtime = RuntimeEngine(
@@ -37,11 +40,13 @@ def main(argv: list[str] | None = None) -> int:
     )
     control_plane = SchedulerControlPlane(runtime=runtime)
 
-    writer = TraceWriter(output_dir=Path(args.trace_output))
+    writer = TraceWriter(output_dir=trace_output_dir)
     writer.write_experiment_meta(
         {
             "scenario_name": bundle.scenario.metadata.name,
             "scenario_path": str(Path(args.scenario).resolve()),
+            "trace_run_id": trace_run_id,
+            "trace_output_dir": str(trace_output_dir.resolve()),
             "task_names": sorted(bundle.tasks),
             "tool_names": sorted(bundle.tools),
             "agent_request_ids": [
@@ -86,6 +91,19 @@ def main(argv: list[str] | None = None) -> int:
                 )
                 for release in pending_releases
             ],
+            running_nodes=[
+                RunningNode(
+                    node_id=node.node_id,
+                    node_instance_id=node.node_instance_id,
+                    task_instance_id=node.task_instance_id,
+                    source=node.source,
+                    criticality=node.criticality,
+                    predicted_latency_us=node.predicted_latency_us,
+                    resource_demand=node.resource_demand,
+                    started_at_us=node.started_at_us,
+                )
+                for node in runtime.running_nodes
+            ],
         )
         writer.write_scheduler_observation(
             {
@@ -104,6 +122,19 @@ def main(argv: list[str] | None = None) -> int:
                         "resource_demand": node.resource_demand.to_dict(),
                     }
                     for node in observation.runnable_nodes
+                ],
+                "running_nodes": [
+                    {
+                        "node_id": node.node_id,
+                        "node_instance_id": node.node_instance_id,
+                        "task_instance_id": node.task_instance_id,
+                        "source": node.source,
+                        "criticality": node.criticality,
+                        "predicted_latency_us": node.predicted_latency_us,
+                        "started_at_us": node.started_at_us,
+                        "resource_demand": node.resource_demand.to_dict(),
+                    }
+                    for node in observation.running_nodes
                 ],
             }
         )

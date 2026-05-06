@@ -1,5 +1,6 @@
 from collections.abc import Callable
 from dataclasses import dataclass, field
+import re
 
 from scheduler_sim.domain.resources import ResourceVector
 from scheduler_sim.planner.agent import plan_request
@@ -32,6 +33,8 @@ class WorkloadGenerator:
     _agent_instances: dict[str, AgentInstanceState] = field(default_factory=dict)
     _pending_task_definitions: list[dict[str, object]] = field(default_factory=list)
     _pending_task_outcomes: list[dict[str, object]] = field(default_factory=list)
+    _critical_release_counts: dict[str, int] = field(default_factory=dict)
+    _agent_arrival_counts: dict[str, int] = field(default_factory=dict)
 
     @classmethod
     def critical_only(cls, node_id: str, period_us: int) -> "WorkloadGenerator":
@@ -52,14 +55,19 @@ class WorkloadGenerator:
 
         for task in self.critical_tasks:
             if timestamp_us % task.period_us == 0:
-                task_instance_id = task.task_instance_id or task.node_id
+                task_key = task.task_instance_id or task.node_id
+                release_count = self._critical_release_counts.get(task_key, 0) + 1
+                self._critical_release_counts[task_key] = release_count
+                task_instance_id = (
+                    f"critical-{self._slug(task.node_id)}-{release_count:05d}"
+                )
                 releases.append(
                     WorkloadRelease(
                         node_id=task.node_id,
                         node_instance_id=self._format_node_instance_id(
                             task_instance_id,
                             task.node_id,
-                            timestamp_us,
+                            0,
                         ),
                         task_instance_id=task_instance_id,
                         source="critical",
@@ -153,18 +161,23 @@ class WorkloadGenerator:
         timestamp_us: int,
     ) -> list[WorkloadRelease]:
         dag = self.planner(arrival.user_request)
+        arrival_count = self._agent_arrival_counts.get(arrival.request_id, 0) + 1
+        self._agent_arrival_counts[arrival.request_id] = arrival_count
+        task_instance_id = (
+            f"{self._slug(arrival.request_id)}-{timestamp_us:08d}-{arrival_count:03d}"
+        )
         agent_state = AgentInstanceState(
-            task_instance_id=arrival.request_id,
+            task_instance_id=task_instance_id,
             criticality=arrival.criticality,
             arrival_time_us=timestamp_us,
             dag=dag,
         )
-        self._agent_instances[arrival.request_id] = agent_state
+        self._agent_instances[task_instance_id] = agent_state
         self._pending_task_definitions.append(
             {
                 "event_type": "task_definition",
                 "definition_type": "agent_task_instance",
-                "task_instance_id": arrival.request_id,
+                "task_instance_id": task_instance_id,
                 "request_id": arrival.request_id,
                 "arrival_time_us": timestamp_us,
                 "criticality": arrival.criticality,
@@ -242,8 +255,11 @@ class WorkloadGenerator:
         node_id: str,
         release_index: int,
     ) -> str:
-        return f"{task_instance_id}:{node_id}:{release_index}"
+        return f"{task_instance_id}--{self._slug(node_id)}"
 
     def _parse_node_instance_id(self, node_instance_id: str) -> tuple[str, str]:
-        task_instance_id, node_id, _ = node_instance_id.rsplit(":", 2)
+        task_instance_id, node_id = node_instance_id.rsplit("--", 1)
         return task_instance_id, node_id
+
+    def _slug(self, value: str) -> str:
+        return re.sub(r"[^a-z0-9_]+", "-", value.strip().lower()).strip("-")

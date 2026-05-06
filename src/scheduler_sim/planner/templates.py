@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 
 
-KNOWN_TABLE_OBJECT_QUERY = "what objects are on the table?"
+FIXED_AGENT_PIPELINE_QUERY = "fixed-agent-pipeline"
 
 
 @dataclass(slots=True)
@@ -19,8 +19,12 @@ class PlannedDag:
 def build_table_object_query_template() -> PlannedDag:
     return PlannedDag(
         nodes=[
-            PlannedNode(node_id="detect_table", tool_name="object_detection"),
-            PlannedNode(node_id="identify_objects", tool_name="object_detection"),
+            PlannedNode(node_id="image_captioning", tool_name="image_captioning"),
+            PlannedNode(node_id="text_translation", tool_name="text_translation"),
+            PlannedNode(node_id="text_to_speech", tool_name="text_to_speech"),
         ],
-        edges=[("detect_table", "identify_objects")],
+        edges=[
+            ("image_captioning", "text_translation"),
+            ("text_translation", "text_to_speech"),
+        ],
     )

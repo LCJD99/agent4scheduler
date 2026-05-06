@@ -1,0 +1,12 @@
+api_version: sim.tool/v1
+kind: ToolSpec
+
+metadata:
+  name: text_translation
+  display_name: Text Translation
+  description: Translate generated text.
+
+default_predicted_latency_us: 2000
+default_resource_demand:
+  cpu_cores: 0.5
+  memory_mb: 128

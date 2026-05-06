@@ -1,0 +1,12 @@
+api_version: sim.tool/v1
+kind: ToolSpec
+
+metadata:
+  name: image_captioning
+  display_name: Image Captioning
+  description: Generate a caption for an image.
+
+default_predicted_latency_us: 4000
+default_resource_demand:
+  cpu_cores: 1.0
+  memory_mb: 512
