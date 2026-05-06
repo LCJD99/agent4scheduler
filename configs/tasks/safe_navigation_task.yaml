@@ -1,0 +1,18 @@
+api_version: sim.task/v1
+kind: TaskSpec
+
+metadata:
+  name: safe_navigation_task
+  description: Minimal task spec for safe navigation.
+
+tools:
+  - configs/tools/object_detection.yaml
+
+critical_nodes:
+  - node_id: perception.object_detection
+    period_us: 5000
+    criticality: high
+    predicted_latency_us: 2000
+    resource_demand:
+      cpu_cores: 1.0
+      memory_mb: 256
