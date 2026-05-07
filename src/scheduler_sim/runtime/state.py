@@ -7,6 +7,7 @@ from scheduler_sim.latency.models import ProgressSlice
 @dataclass(slots=True)
 class RunningNode:
     node_id: str
+    tool_name: str
     node_instance_id: str
     task_instance_id: str
     source: str
@@ -16,4 +17,5 @@ class RunningNode:
     remaining_work_us: float
     progress: ProgressSlice
     tick_progress_us: float
+    allocated_resources: ResourceVector
     resource_demand: ResourceVector

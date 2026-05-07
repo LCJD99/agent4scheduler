@@ -6,6 +6,7 @@ from scheduler_sim.domain.resources import ResourceVector
 @dataclass(slots=True)
 class WorkloadRelease:
     node_id: str
+    tool_name: str
     node_instance_id: str
     task_instance_id: str
     source: str
@@ -20,6 +21,7 @@ class WorkloadRelease:
 @dataclass(slots=True)
 class CriticalTaskSpec:
     node_id: str
+    tool_name: str
     period_us: int
     criticality: str
     predicted_latency_us: int

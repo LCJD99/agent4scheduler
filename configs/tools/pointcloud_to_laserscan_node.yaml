@@ -1,0 +1,12 @@
+api_version: sim.tool/v1
+kind: ToolSpec
+
+metadata:
+  name: pointcloud_to_laserscan_node
+  display_name: Pointcloud To Laserscan Node
+  description: Convert point cloud input into laser scan representation.
+
+default_predicted_latency_us: 8000
+default_resource_demand:
+  cpu_cores: 1.0
+  memory_mb: 256

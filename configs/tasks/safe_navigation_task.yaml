@@ -5,10 +5,14 @@ metadata:
   name: safe_navigation_task
   description: Critical navigation task chain.
 
-tools: []
+tools:
+  - configs/tools/localization_node.yaml
+  - configs/tools/pointcloud_to_laserscan_node.yaml
+  - configs/tools/navigation_algo_node.yaml
 
 critical_nodes:
   - node_id: localization_node
+    tool_name: localization_node
     period_us: 20000
     criticality: high
     predicted_latency_us: 4000
@@ -16,6 +20,7 @@ critical_nodes:
       cpu_cores: 0.5
       memory_mb: 128
   - node_id: pointcloud_to_laserscan_node
+    tool_name: pointcloud_to_laserscan_node
     period_us: 50000
     criticality: medium
     predicted_latency_us: 8000
@@ -23,6 +28,7 @@ critical_nodes:
       cpu_cores: 1.0
       memory_mb: 256
   - node_id: navigation_algo_node
+    tool_name: navigation_algo_node
     period_us: 28600
     criticality: high
     predicted_latency_us: 6000

@@ -15,6 +15,13 @@ class TraceWriter:
             encoding="utf-8",
         )
 
+    def write_trace_summary(self, payload: TracePayload) -> None:
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        (self.output_dir / "trace_summary.json").write_text(
+            json.dumps(payload),
+            encoding="utf-8",
+        )
+
     def write_workload_event(self, payload: TracePayload) -> None:
         self._append_jsonl("workload_events.jsonl", payload)
 

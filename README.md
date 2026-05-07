@@ -1,21 +1,36 @@
 # Scheduler Sim
 
-Minimal online scheduler simulator scaffold for loading a scenario bundle and emitting a trace artifact.
+Online scheduler simulator for fixed-tick workload release, scheduling, runtime execution, and trace emission.
 
-## Current End-to-End Flow
+## Current Scope
 
-The current CLI supports a small, working path:
+The repository currently supports the online path only:
 
 1. Load a scenario YAML file.
-2. Resolve referenced task YAML files.
-3. Resolve referenced tool YAML files.
-4. Write `experiment_meta.json` to the requested trace directory.
+2. Resolve referenced task YAML files and tool YAML files.
+3. Build the workload described in [docs/meta/workload.md](docs/meta/workload.md).
+4. Run a fixed-tick scheduler/runtime loop.
+5. Emit multi-file trace output under a timestamped run directory.
 
-This repository does not yet implement a full fixed-tick simulator loop, runtime progression, or multi-file trace stream output.
+## Implemented Workload
 
-## CLI Usage
+Critical workload:
 
-Run with the project interpreter:
+- `localization_node`
+- `pointcloud_to_laserscan_node`
+- `navigation_algo_node`
+
+Agent workload:
+
+- `image_captioning -> text_translation -> text_to_speech`
+
+The bundled example scenario is:
+
+- `configs/scenarios/home_eqa_scenario_001.yaml`
+
+## Run
+
+Use the repository interpreter defined in [AGENTS.md](AGENTS.md):
 
 ```bash
 PYTHONPATH=src /Users/lcjd/miniconda3/envs/agent/bin/python -m scheduler_sim.app \
@@ -23,37 +38,14 @@ PYTHONPATH=src /Users/lcjd/miniconda3/envs/agent/bin/python -m scheduler_sim.app
   --trace-output traces/home_eqa_scenario_001
 ```
 
-Equivalent module-free invocation from tests:
-
-```python
-from scheduler_sim.app import main
-
-main([
-    "--scenario",
-    "configs/scenarios/home_eqa_scenario_001.yaml",
-    "--trace-output",
-    "traces/home_eqa_scenario_001",
-])
-```
-
-## Scenario Layout
-
-The implemented config chain is:
-
-- `configs/scenarios/*.yaml` defines scenario metadata and `tasks`.
-- `configs/tasks/*.yaml` defines task metadata and `tools`.
-- `configs/tools/*.yaml` defines tool metadata.
-
-The bundled example is:
-
-- `configs/scenarios/home_eqa_scenario_001.yaml`
-- `configs/tasks/safe_navigation_task.yaml`
-- `configs/tools/object_detection.yaml`
-
 ## Trace Output
 
-The current CLI writes one file:
+Each run creates a timestamped directory under `--trace-output`:
 
-- `experiment_meta.json`: JSON object with the loaded scenario name, for example `{"scenario_name": "home_eqa_scenario_001"}`.
-
-The broader trace schema described in `docs/meta/trace.md` remains a design target rather than the current implementation.
+- `YYYYMMDD-HHMMSS/experiment_meta.json`
+- `YYYYMMDD-HHMMSS/workload_events.jsonl`
+- `YYYYMMDD-HHMMSS/task_definitions.jsonl`
+- `YYYYMMDD-HHMMSS/task_outcomes.jsonl`
+- `YYYYMMDD-HHMMSS/scheduler_observation.jsonl`
+- `YYYYMMDD-HHMMSS/scheduler_decision.jsonl`
+- `YYYYMMDD-HHMMSS/runtime_execution.jsonl`

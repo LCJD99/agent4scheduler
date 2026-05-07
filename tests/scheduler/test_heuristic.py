@@ -9,6 +9,7 @@ def build_observation_with_critical_and_agent() -> SchedulerObservation:
         runnable_nodes=[
             RunnableNode(
                 node_id="agent-node",
+                tool_name="image_captioning",
                 node_instance_id="req-1:agent-node:0",
                 task_instance_id="req-1",
                 source="agent",
@@ -17,6 +18,7 @@ def build_observation_with_critical_and_agent() -> SchedulerObservation:
             ),
             RunnableNode(
                 node_id="critical-node",
+                tool_name="localization_node",
                 node_instance_id="critical-node:0",
                 task_instance_id="critical-node",
                 source="critical",
@@ -30,7 +32,11 @@ def build_observation_with_critical_and_agent() -> SchedulerObservation:
 def test_scheduler_prioritizes_critical_nodes_before_agent_nodes():
     scheduler = HeuristicScheduler()
     decision = scheduler.decide(observation=build_observation_with_critical_and_agent())
-    assert decision.selected_nodes[0].criticality == "high"
+    assert decision.allocations[0].node.criticality == "high"
+    assert decision.allocations[0].allocated_resources == ResourceVector(
+        cpu_cores=1.0,
+        memory_mb=128,
+    )
 
 
 def test_scheduler_selects_only_nodes_that_fit_remaining_capacity():
@@ -41,6 +47,7 @@ def test_scheduler_selects_only_nodes_that_fit_remaining_capacity():
         runnable_nodes=[
             RunnableNode(
                 node_id="critical-overflow",
+                tool_name="localization_node",
                 node_instance_id="critical-overflow:0",
                 task_instance_id="critical-overflow",
                 source="critical",
@@ -49,6 +56,7 @@ def test_scheduler_selects_only_nodes_that_fit_remaining_capacity():
             ),
             RunnableNode(
                 node_id="critical-fit",
+                tool_name="navigation_algo_node",
                 node_instance_id="critical-fit:0",
                 task_instance_id="critical-fit",
                 source="critical",
@@ -57,6 +65,7 @@ def test_scheduler_selects_only_nodes_that_fit_remaining_capacity():
             ),
             RunnableNode(
                 node_id="agent-fit",
+                tool_name="text_translation",
                 node_instance_id="req-2:agent-fit:0",
                 task_instance_id="req-2",
                 source="agent",
@@ -68,10 +77,14 @@ def test_scheduler_selects_only_nodes_that_fit_remaining_capacity():
 
     decision = scheduler.decide(observation=observation)
 
-    assert [node.node_id for node in decision.selected_nodes] == [
+    assert [allocation.node.node_id for allocation in decision.allocations] == [
         "critical-fit",
         "agent-fit",
     ]
+    assert decision.allocations[1].allocated_resources == ResourceVector(
+        cpu_cores=1.0,
+        memory_mb=128,
+    )
 
 
 def test_scheduler_observation_carries_running_nodes():
@@ -82,11 +95,13 @@ def test_scheduler_observation_carries_running_nodes():
         running_nodes=[
             RunningNode(
                 node_id="running-critical",
+                tool_name="localization_node",
                 node_instance_id="critical-001--localization_node",
                 task_instance_id="critical-localization-001",
                 source="critical",
                 criticality="high",
                 started_at_us=1_500,
+                allocated_resources=ResourceVector(cpu_cores=0.5, memory_mb=128),
                 resource_demand=ResourceVector(cpu_cores=0.5, memory_mb=128),
             )
         ],

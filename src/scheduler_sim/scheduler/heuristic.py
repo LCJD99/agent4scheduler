@@ -1,17 +1,28 @@
 from scheduler_sim.domain.resources import ResourceVector
-from scheduler_sim.scheduler.base import RunnableNode, Scheduler, SchedulerDecision, SchedulerObservation
+from scheduler_sim.scheduler.base import (
+    RunnableNode,
+    ScheduledNodeAllocation,
+    Scheduler,
+    SchedulerDecision,
+    SchedulerObservation,
+)
 
 
 class HeuristicScheduler(Scheduler):
     def decide(self, observation: SchedulerObservation) -> SchedulerDecision:
         remaining_capacity = observation.available_resources
-        selected_nodes: list[RunnableNode] = []
+        allocations: list[ScheduledNodeAllocation] = []
         for node in sorted(observation.runnable_nodes, key=self._priority_key):
             if node.resource_demand.fits_within(remaining_capacity):
-                selected_nodes.append(node)
+                allocations.append(
+                    ScheduledNodeAllocation(
+                        node=node,
+                        allocated_resources=node.resource_demand,
+                    )
+                )
                 remaining_capacity = remaining_capacity - node.resource_demand
         return SchedulerDecision(
-            selected_nodes=selected_nodes,
+            allocations=allocations,
             timestamp_us=observation.timestamp_us,
         )
 

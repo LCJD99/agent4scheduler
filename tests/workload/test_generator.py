@@ -1,12 +1,20 @@
 from scheduler_sim.domain.resources import ResourceVector
 from scheduler_sim.workload.generator import WorkloadGenerator
-from scheduler_sim.workload.instances import AgentArrivalSpec, ToolExecutionSpec
+from scheduler_sim.workload.instances import AgentArrivalSpec, CriticalTaskSpec, ToolExecutionSpec
 
 
 def test_generator_releases_periodic_critical_node_on_tick_boundary():
-    generator = WorkloadGenerator.critical_only(
-        node_id="local_planner_node",
-        period_us=50_000,
+    generator = WorkloadGenerator(
+        critical_tasks=[
+            CriticalTaskSpec(
+                node_id="local_planner_node",
+                tool_name="local_planner_node",
+                period_us=50_000,
+                criticality="high",
+                predicted_latency_us=10_000,
+                resource_demand=ResourceVector(cpu_cores=1.0),
+            )
+        ],
     )
 
     events = generator.release(timestamp_us=50_000)
@@ -14,6 +22,7 @@ def test_generator_releases_periodic_critical_node_on_tick_boundary():
     assert any(event.node_id == "local_planner_node" for event in events)
     assert events[0].task_instance_id.startswith("critical-local_planner_node-")
     assert events[0].node_instance_id.startswith("critical-local_planner_node-")
+    assert events[0].tool_name == "local_planner_node"
 
 
 def test_generator_releases_agent_roots_on_arrival_and_dependents_after_completion():
@@ -47,6 +56,7 @@ def test_generator_releases_agent_roots_on_arrival_and_dependents_after_completi
     assert [release.node_id for release in arrival_releases] == ["image_captioning"]
     assert arrival_releases[0].task_instance_id.startswith("agent-caption-pipeline-")
     assert arrival_releases[0].node_instance_id.endswith("--image_captioning")
+    assert arrival_releases[0].tool_name == "image_captioning"
     assert arrival_releases[0].resource_demand == ResourceVector(
         cpu_cores=1.0,
         memory_mb=512,
@@ -60,6 +70,7 @@ def test_generator_releases_agent_roots_on_arrival_and_dependents_after_completi
     assert [release.node_id for release in dependent_releases] == ["text_translation"]
     assert dependent_releases[0].task_instance_id == arrival_releases[0].task_instance_id
     assert dependent_releases[0].node_instance_id.endswith("--text_translation")
+    assert dependent_releases[0].tool_name == "text_translation"
 
     final_releases = generator.release_on_completions(
         timestamp_us=8_000,
@@ -68,6 +79,7 @@ def test_generator_releases_agent_roots_on_arrival_and_dependents_after_completi
 
     assert [release.node_id for release in final_releases] == ["text_to_speech"]
     assert final_releases[0].node_instance_id.endswith("--text_to_speech")
+    assert final_releases[0].tool_name == "text_to_speech"
 
 
 def test_generator_exposes_agent_task_definition_and_completion_outcome():

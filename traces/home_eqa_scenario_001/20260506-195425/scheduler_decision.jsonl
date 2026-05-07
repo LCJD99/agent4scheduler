@@ -1,0 +1,100 @@
+{"event_type": "scheduler_decision", "timestamp_us": 0, "selected_nodes": [{"node_id": "localization_node", "node_instance_id": "critical-localization_node-00001--localization_node", "task_instance_id": "critical-localization_node-00001", "source": "critical", "criticality": "high", "predicted_latency_us": 4000, "resource_demand": {"cpu_cores": 0.5, "memory_mb": 128, "gpu_vram_mb": 0, "network_mbps": 0.0}}, {"node_id": "navigation_algo_node", "node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node", "task_instance_id": "critical-navigation_algo_node-00003", "source": "critical", "criticality": "high", "predicted_latency_us": 6000, "resource_demand": {"cpu_cores": 1.0, "memory_mb": 256, "gpu_vram_mb": 0, "network_mbps": 0.0}}, {"node_id": "pointcloud_to_laserscan_node", "node_instance_id": "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node", "task_instance_id": "critical-pointcloud_to_laserscan_node-00002", "source": "critical", "criticality": "medium", "predicted_latency_us": 8000, "resource_demand": {"cpu_cores": 1.0, "memory_mb": 256, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 1000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 2000, "selected_nodes": [{"node_id": "image_captioning", "node_instance_id": "agent-caption-pipeline-00002000-001--image_captioning", "task_instance_id": "agent-caption-pipeline-00002000-001", "source": "agent", "criticality": "low", "predicted_latency_us": 4000, "resource_demand": {"cpu_cores": 1.0, "memory_mb": 512, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 3000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 4000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 5000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 6000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 7000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 8000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 9000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 10000, "selected_nodes": [{"node_id": "text_translation", "node_instance_id": "agent-caption-pipeline-00002000-001--text_translation", "task_instance_id": "agent-caption-pipeline-00002000-001", "source": "agent", "criticality": "low", "predicted_latency_us": 2000, "resource_demand": {"cpu_cores": 0.5, "memory_mb": 128, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 11000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 12000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 13000, "selected_nodes": [{"node_id": "text_to_speech", "node_instance_id": "agent-caption-pipeline-00002000-001--text_to_speech", "task_instance_id": "agent-caption-pipeline-00002000-001", "source": "agent", "criticality": "low", "predicted_latency_us": 3000, "resource_demand": {"cpu_cores": 0.5, "memory_mb": 256, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 14000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 15000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 16000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 17000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 18000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 19000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 20000, "selected_nodes": [{"node_id": "localization_node", "node_instance_id": "critical-localization_node-00004--localization_node", "task_instance_id": "critical-localization_node-00004", "source": "critical", "criticality": "high", "predicted_latency_us": 4000, "resource_demand": {"cpu_cores": 0.5, "memory_mb": 128, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 21000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 22000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 23000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 24000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 25000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 26000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 27000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 28000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 29000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 30000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 31000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 32000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 33000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 34000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 35000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 36000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 37000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 38000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 39000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 40000, "selected_nodes": [{"node_id": "localization_node", "node_instance_id": "critical-localization_node-00005--localization_node", "task_instance_id": "critical-localization_node-00005", "source": "critical", "criticality": "high", "predicted_latency_us": 4000, "resource_demand": {"cpu_cores": 0.5, "memory_mb": 128, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 41000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 42000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 43000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 44000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 45000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 46000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 47000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 48000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 49000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 50000, "selected_nodes": [{"node_id": "pointcloud_to_laserscan_node", "node_instance_id": "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node", "task_instance_id": "critical-pointcloud_to_laserscan_node-00006", "source": "critical", "criticality": "medium", "predicted_latency_us": 8000, "resource_demand": {"cpu_cores": 1.0, "memory_mb": 256, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 51000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 52000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 53000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 54000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 55000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 56000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 57000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 58000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 59000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 60000, "selected_nodes": [{"node_id": "localization_node", "node_instance_id": "critical-localization_node-00007--localization_node", "task_instance_id": "critical-localization_node-00007", "source": "critical", "criticality": "high", "predicted_latency_us": 4000, "resource_demand": {"cpu_cores": 0.5, "memory_mb": 128, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 61000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 62000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 63000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 64000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 65000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 66000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 67000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 68000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 69000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 70000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 71000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 72000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 73000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 74000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 75000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 76000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 77000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 78000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 79000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 80000, "selected_nodes": [{"node_id": "localization_node", "node_instance_id": "critical-localization_node-00008--localization_node", "task_instance_id": "critical-localization_node-00008", "source": "critical", "criticality": "high", "predicted_latency_us": 4000, "resource_demand": {"cpu_cores": 0.5, "memory_mb": 128, "gpu_vram_mb": 0, "network_mbps": 0.0}}]}
+{"event_type": "scheduler_decision", "timestamp_us": 81000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 82000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 83000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 84000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 85000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 86000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 87000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 88000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 89000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 90000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 91000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 92000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 93000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 94000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 95000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 96000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 97000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 98000, "selected_nodes": []}
+{"event_type": "scheduler_decision", "timestamp_us": 99000, "selected_nodes": []}

@@ -1,12 +1,22 @@
 from scheduler_sim.domain.resources import ResourceVector
 from scheduler_sim.latency.estimator import estimate_node_progress
+from scheduler_sim.profiling.estimator import ProfilingEstimator
 from scheduler_sim.runtime.state import RunningNode
 
 
 class RuntimeEngine:
-    def __init__(self, *, tick_us: int, system_capacity: ResourceVector) -> None:
+    def __init__(
+        self,
+        *,
+        tick_us: int,
+        system_capacity: ResourceVector,
+        profiling_estimator: ProfilingEstimator,
+        scene_complexity: str,
+    ) -> None:
         self.tick_us = tick_us
         self.system_capacity = system_capacity
+        self.profiling_estimator = profiling_estimator
+        self.scene_complexity = scene_complexity
         self.running_nodes: list[RunningNode] = []
         self.completed_count = 0
 
@@ -18,7 +28,7 @@ class RuntimeEngine:
     def allocated_resources(self) -> ResourceVector:
         allocated = ResourceVector.zero()
         for node in self.running_nodes:
-            allocated = allocated + node.resource_demand
+            allocated = allocated + node.allocated_resources
         return allocated
 
     @property
@@ -61,9 +71,10 @@ class RuntimeEngine:
         self,
         *,
         node_id: str,
+        tool_name: str,
         node_instance_id: str,
         task_instance_id: str,
-        predicted_latency_us: int,
+        allocated_resources: ResourceVector,
         resource_demand: ResourceVector,
         source: str = "unknown",
         criticality: str = "low",
@@ -73,8 +84,14 @@ class RuntimeEngine:
             node.node_instance_id == node_instance_id for node in self.running_nodes
         ):
             return False
-        if not resource_demand.fits_within(self.available_resources):
+        if not allocated_resources.fits_within(self.available_resources):
             return False
+
+        predicted_latency_us = self.profiling_estimator.estimate_latency_us(
+            tool_name=tool_name,
+            allocated_resources=allocated_resources,
+            scene_complexity=self.scene_complexity,
+        )
 
         progress = estimate_node_progress(
             predicted_latency_us=predicted_latency_us,
@@ -84,6 +101,7 @@ class RuntimeEngine:
         self.running_nodes.append(
             RunningNode(
                 node_id=node_id,
+                tool_name=tool_name,
                 node_instance_id=node_instance_id,
                 task_instance_id=task_instance_id,
                 source=source,
@@ -93,6 +111,7 @@ class RuntimeEngine:
                 remaining_work_us=predicted_latency_us,
                 progress=progress,
                 tick_progress_us=progress.progress_us,
+                allocated_resources=allocated_resources,
                 resource_demand=resource_demand,
             )
         )
@@ -119,6 +138,7 @@ class RuntimeEngine:
                 completed_nodes.append(
                     {
                         "node_id": node.node_id,
+                        "tool_name": node.tool_name,
                         "node_instance_id": node.node_instance_id,
                         "task_instance_id": node.task_instance_id,
                         "source": node.source,
@@ -128,6 +148,7 @@ class RuntimeEngine:
                         "predicted_latency_us": node.predicted_latency_us,
                         "tick_progress_us": node.tick_progress_us,
                         "resource_pressure_multiplier": node.progress.penalty_multiplier,
+                        "allocated_resources": node.allocated_resources.to_dict(),
                         "resource_demand": node.resource_demand.to_dict(),
                     }
                 )
@@ -142,6 +163,7 @@ class RuntimeEngine:
             "running_nodes": [
                 {
                     "node_id": node.node_id,
+                    "tool_name": node.tool_name,
                     "node_instance_id": node.node_instance_id,
                     "task_instance_id": node.task_instance_id,
                     "source": node.source,
@@ -151,6 +173,8 @@ class RuntimeEngine:
                     "started_at_us": node.started_at_us,
                     "tick_progress_us": node.tick_progress_us,
                     "resource_pressure_multiplier": node.progress.penalty_multiplier,
+                    "scene_complexity": self.scene_complexity,
+                    "allocated_resources": node.allocated_resources.to_dict(),
                     "resource_demand": node.resource_demand.to_dict(),
                 }
                 for node in self.running_nodes

@@ -5,11 +5,12 @@ metadata:
   name: home_eqa_scenario_001
   description: Mixed critical and agent workload scenario.
 
+scene_complexity: large
 tick_us: 1000
 duration_us: 100000
 system_capacity:
   cpu_cores: 4.0
-  memory_mb: 4096
+  memory_mb: 1024
   network_mbps: 100.0
 
 tasks:
@@ -19,5 +20,5 @@ tasks:
 agent_requests:
   - request_id: agent-caption-pipeline
     user_request: Describe, translate, and speak the latest image.
-    arrival_time_us: 2000
+    arrival_time_us: 18000
     criticality: low

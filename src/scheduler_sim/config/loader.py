@@ -90,6 +90,7 @@ def _build_scenario_spec(data: dict[str, Any]) -> ScenarioSpec:
     return ScenarioSpec(
         metadata=_build_metadata(data),
         task_refs=list(data.get("tasks", [])),
+        scene_complexity=_require_scene_complexity(data, "scene_complexity"),
         tick_us=_require_int(data, "tick_us"),
         duration_us=_require_int(data, "duration_us"),
         system_capacity=_build_resource_vector(data.get("system_capacity", {})),
@@ -120,6 +121,7 @@ def _build_agent_request_spec(data: dict[str, Any]) -> AgentRequestSpec:
 def _build_critical_node_spec(data: dict[str, Any]) -> CriticalNodeSpec:
     return CriticalNodeSpec(
         node_id=_require_str(data, "node_id"),
+        tool_name=_require_str(data, "tool_name"),
         period_us=_require_int(data, "period_us"),
         criticality=_require_str(data, "criticality"),
         predicted_latency_us=_require_int(data, "predicted_latency_us"),
@@ -150,6 +152,13 @@ def _require_str(data: dict[str, Any], key: str) -> str:
     value = data.get(key)
     if not isinstance(value, str) or not value:
         raise ValueError(f"Config field {key} must be a non-empty string")
+    return value
+
+
+def _require_scene_complexity(data: dict[str, Any], key: str) -> str:
+    value = _require_str(data, key)
+    if value not in {"small", "medium", "large"}:
+        raise ValueError(f"Config field {key} must be one of small, medium, large")
     return value
 
 

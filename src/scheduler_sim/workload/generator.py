@@ -42,6 +42,7 @@ class WorkloadGenerator:
             critical_tasks=[
                 CriticalTaskSpec(
                     node_id=node_id,
+                    tool_name=node_id,
                     period_us=period_us,
                     criticality="high",
                     predicted_latency_us=period_us,
@@ -64,6 +65,7 @@ class WorkloadGenerator:
                 releases.append(
                     WorkloadRelease(
                         node_id=task.node_id,
+                        tool_name=task.tool_name,
                         node_instance_id=self._format_node_instance_id(
                             task_instance_id,
                             task.node_id,
@@ -222,6 +224,7 @@ class WorkloadGenerator:
         ]
         return WorkloadRelease(
             node_id=node_id,
+            tool_name=self._tool_name_for(agent_state.dag, node_id),
             node_instance_id=self._format_node_instance_id(
                 agent_state.task_instance_id,
                 node_id,

@@ -19,6 +19,7 @@ class AgentRequestSpec:
 @dataclass(slots=True)
 class CriticalNodeSpec:
     node_id: str
+    tool_name: str
     period_us: int
     criticality: str
     predicted_latency_us: int
@@ -43,6 +44,7 @@ class TaskSpec:
 class ScenarioSpec:
     metadata: Metadata
     task_refs: list[str]
+    scene_complexity: str
     tick_us: int
     duration_us: int
     system_capacity: ResourceVector

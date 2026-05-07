@@ -8,6 +8,7 @@ class RunnableNode:
     node_id: str
     node_instance_id: str
     task_instance_id: str
+    tool_name: str
     source: str
     criticality: str
     predicted_latency_us: int = 0
@@ -18,6 +19,13 @@ class RunnableNode:
 @dataclass(slots=True)
 class RunningNode(RunnableNode):
     started_at_us: int = 0
+    allocated_resources: ResourceVector = field(default_factory=ResourceVector)
+
+
+@dataclass(slots=True)
+class ScheduledNodeAllocation:
+    node: RunnableNode
+    allocated_resources: ResourceVector
 
 
 @dataclass(slots=True)
@@ -30,8 +38,12 @@ class SchedulerObservation:
 
 @dataclass(slots=True)
 class SchedulerDecision:
-    selected_nodes: list[RunnableNode]
+    allocations: list[ScheduledNodeAllocation]
     timestamp_us: int = 0
+
+    @property
+    def selected_nodes(self) -> list[RunnableNode]:
+        return [allocation.node for allocation in self.allocations]
 
 
 class Scheduler:
