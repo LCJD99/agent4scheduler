@@ -1,4 +1,5 @@
 import argparse
+import json
 from datetime import datetime
 from pathlib import Path
 import statistics
@@ -15,6 +16,7 @@ from scheduler_sim.scheduler.base import (
     SchedulerObservation,
 )
 from scheduler_sim.scheduler.heuristic import HeuristicScheduler
+from scheduler_sim.scheduler.parameterized import ParameterizedHeuristicScheduler
 from scheduler_sim.trace.writer import TraceWriter
 from scheduler_sim.workload.generator import WorkloadGenerator
 from scheduler_sim.workload.instances import (
@@ -29,6 +31,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="scheduler-sim")
     parser.add_argument("--scenario")
     parser.add_argument("--trace-output")
+    parser.add_argument("--scheduler-params")
     return parser
 
 
@@ -43,7 +46,7 @@ def main(argv: list[str] | None = None) -> int:
     trace_run_id = datetime.now().strftime("%Y%m%d-%H%M%S")
     trace_output_dir = Path(args.trace_output) / trace_run_id
     generator = _build_workload_generator(bundle)
-    scheduler = HeuristicScheduler()
+    scheduler = _build_scheduler(args.scheduler_params)
     runtime = RuntimeEngine(
         tick_us=bundle.scenario.tick_us,
         system_capacity=bundle.scenario.system_capacity,
@@ -254,6 +257,13 @@ def _build_workload_generator(bundle) -> WorkloadGenerator:
         agent_arrivals=agent_arrivals,
         tool_execution_specs=tool_execution_specs,
     )
+
+
+def _build_scheduler(scheduler_params_path: str | None):
+    if scheduler_params_path is None:
+        return HeuristicScheduler()
+    parameters = json.loads(Path(scheduler_params_path).read_text(encoding="utf-8"))
+    return ParameterizedHeuristicScheduler(parameters=parameters)
 
 
 def _remove_started_releases(
