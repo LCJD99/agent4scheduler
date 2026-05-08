@@ -22,6 +22,12 @@
 - `trace_summary.json` is the primary summary view for outcome metrics. It must expose critical-task deadline/frequency satisfaction and agent-task total completion latency in directly consumable form.
 - The default bundled scenario is expected to demonstrate resource contention: under the default config, agent arrival should be able to cause at least one critical-task deadline miss.
 
+## Change Log
+
+- After every code implementation, append an incremental record to `docs/changlog.md`.
+- Each record should include the date, a concise summary of the implementation, key files or modules changed, and verification performed.
+- Do not rewrite or reorder existing change log entries unless explicitly requested.
+
 ## Verification
 
 - Run tests with `/Users/lcjd/miniconda3/envs/agent/bin/python -m pytest -v`.

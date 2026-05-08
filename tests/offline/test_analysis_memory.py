@@ -57,15 +57,19 @@ def create_trace_run(tmp_path):
         [
             {
                 "event_type": "workload_release",
-                "timestamp_us": 0,
+                "timestamp_us": 10_000,
                 "source": "critical",
                 "node_id": "localization_node",
+                "node_instance_id": "localization_node:0",
+                "task_instance_id": "critical-task",
             },
             {
                 "event_type": "workload_release",
-                "timestamp_us": 10_000,
+                "timestamp_us": 12_000,
                 "source": "agent",
                 "node_id": "image_captioning",
+                "node_instance_id": "agent-1:image_captioning:0",
+                "task_instance_id": "agent-1",
             },
         ],
     )
@@ -73,23 +77,72 @@ def create_trace_run(tmp_path):
         trace_run / "runtime_execution.jsonl",
         [
             {
+                "timestamp_us": 10_000,
                 "resource_utilization": {
                     "cpu_cores": 0.8,
                     "memory_mb": 0.2,
                     "gpu_vram_mb": 0.5,
                     "network_mbps": 0.1,
-                }
+                },
+                "running_nodes": [
+                    {
+                        "node_id": "image_captioning",
+                        "node_instance_id": "agent-1:image_captioning:0",
+                        "source": "agent",
+                    }
+                ],
             }
         ],
     )
-    write_jsonl(trace_run / "scheduler_observation.jsonl", [])
-    write_jsonl(trace_run / "scheduler_decision.jsonl", [])
+    write_jsonl(
+        trace_run / "scheduler_observation.jsonl",
+        [
+            {
+                "timestamp_us": 10_000,
+                "runnable_nodes": [
+                    {
+                        "node_id": "localization_node",
+                        "node_instance_id": "localization_node:0",
+                        "source": "critical",
+                        "criticality": "high",
+                    },
+                    {
+                        "node_id": "image_captioning",
+                        "node_instance_id": "agent-1:image_captioning:0",
+                        "source": "agent",
+                        "criticality": "low",
+                    },
+                ],
+                "running_nodes": [],
+            }
+        ],
+    )
+    write_jsonl(
+        trace_run / "scheduler_decision.jsonl",
+        [
+            {
+                "timestamp_us": 10_000,
+                "selected_nodes": [
+                    {
+                        "node_id": "image_captioning",
+                        "node_instance_id": "agent-1:image_captioning:0",
+                        "source": "agent",
+                        "criticality": "low",
+                    }
+                ],
+            }
+        ],
+    )
     write_jsonl(
         trace_run / "task_outcomes.jsonl",
         [
             {
                 "outcome_type": "critical_release",
                 "node_id": "localization_node",
+                "node_instance_id": "localization_node:0",
+                "released_at_us": 10_000,
+                "deadline_us": 20_000,
+                "completed_at_us": 25_000,
                 "completed": True,
                 "missed_deadline": True,
             }
@@ -139,6 +192,17 @@ def test_profiler_analyzer_and_memory_index_trace_run(tmp_path):
     assert signature["critical_deadline_miss_rate"] == 0.2
     assert findings[0]["defect_type"] == "critical_deadline_miss"
     assert findings[0]["affected_nodes"] == ["localization_node"]
+    assert findings[0]["analysis_mode"] == "agentic_window_inspection"
+    window_evidence = next(
+        evidence
+        for evidence in findings[0]["evidence"]
+        if evidence["file"] == "selected_trace_windows"
+    )
+    assert window_evidence["windows"][0]["center_timestamp_us"] == 20_000
+    assert window_evidence["windows"][0]["agent_selected_nodes"] == [
+        "agent-1:image_captioning:0"
+    ]
+    assert window_evidence["windows"][0]["max_cpu_utilization"] == 0.8
 
     db = TraceMemoryDB(tmp_path / "offline.db")
     case_id = db.ingest_trace_run(trace_run, signature=signature)
