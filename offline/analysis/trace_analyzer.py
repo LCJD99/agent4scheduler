@@ -2,7 +2,17 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from offline.analysis.llm_agent import OpenAILLMFindingAgent
+from offline.config_loader import load_offline_analyzer_config
 from offline.io import read_json, read_jsonl, validate_trace_run
+
+
+DEFAULT_ANALYZER_CONFIG_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "configs"
+    / "offline"
+    / "trace_analyzer_openai.yaml"
+)
 
 
 @dataclass(slots=True)
@@ -16,18 +26,39 @@ class TraceWindow:
 
 
 class TraceAnalyzer:
-    def __init__(self, *, window_radius_us: int = 50_000) -> None:
-        self.agent = AgenticTraceAnalyzer(window_radius_us=window_radius_us)
+    def __init__(
+        self,
+        *,
+        window_radius_us: int = 50_000,
+        config_path: str | Path | None = None,
+        client_factory=None,
+    ) -> None:
+        self.agent = AgenticTraceAnalyzer(
+            window_radius_us=window_radius_us,
+            config_path=config_path or DEFAULT_ANALYZER_CONFIG_PATH,
+            client_factory=client_factory,
+        )
 
     def analyze(self, trace_run: str | Path) -> list[dict[str, Any]]:
         return self.agent.analyze(trace_run)
 
 
 class AgenticTraceAnalyzer:
-    def __init__(self, *, window_radius_us: int) -> None:
+    def __init__(
+        self,
+        *,
+        window_radius_us: int,
+        config_path: str | Path,
+        client_factory=None,
+    ) -> None:
+        self.config = load_offline_analyzer_config(config_path)
         self.window_selector = TraceWindowSelector(window_radius_us=window_radius_us)
         self.window_inspector = TraceWindowInspector()
-        self.synthesizer = TraceFindingSynthesizer()
+        self.finding_agent = OpenAILLMFindingAgent(
+            config=self.config,
+            client_factory=client_factory,
+        )
+        self.adapter = TraceFindingAdapter()
 
     def analyze(self, trace_run: str | Path) -> list[dict[str, Any]]:
         trace_path = Path(trace_run)
@@ -36,9 +67,17 @@ class AgenticTraceAnalyzer:
         windows = self.window_selector.select(trace)
         inspections = [
             self.window_inspector.inspect(trace=trace, window=window)
-            for window in windows
+            for window in windows[: self.config.max_windows]
         ]
-        return self.synthesizer.synthesize(trace=trace, inspections=inspections)
+        llm_result = self.finding_agent.run(
+            trace_summary=trace.summary,
+            inspections=inspections,
+        )
+        return self.adapter.to_findings(
+            trace_summary=trace.summary,
+            inspections=inspections,
+            llm_result=llm_result,
+        )
 
 
 @dataclass(slots=True)
@@ -73,10 +112,7 @@ class TraceWindowSelector:
             if row.get("outcome_type") == "critical_release"
             and row.get("missed_deadline")
         ]
-        windows = [
-            self._window_for_missed_release(row)
-            for row in missed_critical[:5]
-        ]
+        windows = [self._window_for_missed_release(row) for row in missed_critical[:5]]
         if windows:
             return windows
         return self._fallback_windows(trace)
@@ -166,7 +202,9 @@ class TraceWindowInspector:
         for row in rows:
             for node in row.get("runnable_nodes", []):
                 if node.get("source") == source:
-                    node_ids.append(str(node.get("node_instance_id") or node.get("node_id")))
+                    node_ids.append(
+                        str(node.get("node_instance_id") or node.get("node_id"))
+                    )
         return sorted(set(node_ids))
 
     @staticmethod
@@ -175,7 +213,9 @@ class TraceWindowInspector:
         for row in rows:
             for node in row.get("selected_nodes", []):
                 if node.get("source") == source:
-                    node_ids.append(str(node.get("node_instance_id") or node.get("node_id")))
+                    node_ids.append(
+                        str(node.get("node_instance_id") or node.get("node_id"))
+                    )
         return sorted(set(node_ids))
 
     @staticmethod
@@ -184,130 +224,91 @@ class TraceWindowInspector:
         for row in rows:
             for node in row.get("running_nodes", []):
                 if node.get("source") == source:
-                    node_ids.append(str(node.get("node_instance_id") or node.get("node_id")))
+                    node_ids.append(
+                        str(node.get("node_instance_id") or node.get("node_id"))
+                    )
         return sorted(set(node_ids))
 
     @staticmethod
     def _max_utilization(rows: list[dict[str, Any]], key: str) -> float:
         return max(
-            (
-                float(row.get("resource_utilization", {}).get(key, 0.0))
-                for row in rows
-            ),
+            (float(row.get("resource_utilization", {}).get(key, 0.0)) for row in rows),
             default=0.0,
         )
 
 
-class TraceFindingSynthesizer:
-    def synthesize(
-        self, *, trace: TraceBundle, inspections: list[dict[str, Any]]
+class TraceFindingAdapter:
+    def to_findings(
+        self,
+        *,
+        trace_summary: dict[str, Any],
+        inspections: list[dict[str, Any]],
+        llm_result: dict[str, Any],
     ) -> list[dict[str, Any]]:
-        findings = self._deadline_findings(trace.summary, inspections)
-        findings.extend(self._agent_latency_findings(trace.summary, inspections))
-        if findings:
-            return findings
         return [
-            {
-                "defect_type": "no_major_defect_detected",
-                "severity": "info",
-                "analysis_mode": "agentic_window_inspection",
-                "affected_nodes": [],
-                "root_cause_hypothesis": "selected trace windows did not expose critical misses or agent latency outliers",
-                "evidence": [
-                    {"file": "trace_summary.json"},
-                    {"file": "selected_trace_windows", "windows": inspections[:5]},
-                ],
-                "natural_language_advice": "Keep the baseline scheduler as a reference and explore conservative agent latency improvements.",
-            }
+            self._adapt_finding(
+                finding=finding,
+                trace_summary=trace_summary,
+                inspections=inspections,
+            )
+            for finding in llm_result.get("findings", [])
         ]
 
-    @staticmethod
-    def _deadline_findings(
-        summary: dict[str, Any], inspections: list[dict[str, Any]]
-    ) -> list[dict[str, Any]]:
-        affected_nodes = []
-        total_missed = 0
-        for node_id, metrics in summary.get("critical_task_metrics", {}).items():
-            missed = int(metrics.get("missed_deadline_count", 0))
-            if missed:
-                affected_nodes.append(str(node_id))
-                total_missed += missed
-        if not affected_nodes:
-            return []
-        return [
-            {
-                "defect_type": "critical_deadline_miss",
-                "severity": "high",
-                "analysis_mode": "agentic_window_inspection",
-                "affected_nodes": affected_nodes,
-                "root_cause_hypothesis": TraceFindingSynthesizer._deadline_hypothesis(
-                    inspections
+    def _adapt_finding(
+        self,
+        *,
+        finding: dict[str, Any],
+        trace_summary: dict[str, Any],
+        inspections: list[dict[str, Any]],
+    ) -> dict[str, Any]:
+        return {
+            "defect_type": finding["defect_type"],
+            "severity": finding["severity"],
+            "analysis_mode": "openai_llm_agent",
+            "affected_nodes": list(finding["affected_nodes"]),
+            "root_cause_hypothesis": finding["root_cause_hypothesis"],
+            "evidence": [
+                self._summary_evidence(
+                    defect_type=str(finding["defect_type"]),
+                    trace_summary=trace_summary,
                 ),
-                "evidence": [
-                    {
-                        "file": "trace_summary.json",
-                        "metric": "critical_task_metrics.*.missed_deadline_count",
-                        "value": total_missed,
-                    },
-                    {
-                        "file": "selected_trace_windows",
-                        "windows": inspections[:5],
-                    },
-                ],
-                "natural_language_advice": TraceFindingSynthesizer._deadline_advice(
-                    inspections
-                ),
+                {
+                    "file": "selected_trace_windows",
+                    "windows": [
+                        inspections[index]
+                        for index in finding.get("window_refs", [])
+                        if 0 <= index < len(inspections)
+                    ],
+                },
+            ],
+            "natural_language_advice": finding["natural_language_advice"],
+        }
+
+    def _summary_evidence(
+        self,
+        *,
+        defect_type: str,
+        trace_summary: dict[str, Any],
+    ) -> dict[str, Any]:
+        if defect_type == "critical_deadline_miss":
+            total_missed = sum(
+                int(metrics.get("missed_deadline_count", 0))
+                for metrics in trace_summary.get("critical_task_metrics", {}).values()
+            )
+            return {
+                "file": "trace_summary.json",
+                "metric": "critical_task_metrics.*.missed_deadline_count",
+                "value": total_missed,
             }
-        ]
-
-    @staticmethod
-    def _agent_latency_findings(
-        summary: dict[str, Any], inspections: list[dict[str, Any]]
-    ) -> list[dict[str, Any]]:
-        aggregate = summary.get("agent_task_metrics", {}).get("aggregate", {})
-        avg_completion = int(aggregate.get("avg_total_completion_time_us", 0))
-        if avg_completion <= 0:
-            return []
-        return [
-            {
-                "defect_type": "agent_completion_latency",
-                "severity": "medium",
-                "analysis_mode": "agentic_window_inspection",
-                "affected_nodes": [],
-                "root_cause_hypothesis": "agent task makespan can improve if safe leftover resources are used more aggressively",
-                "evidence": [
-                    {
-                        "file": "trace_summary.json",
-                        "metric": "agent_task_metrics.aggregate.avg_total_completion_time_us",
-                        "value": avg_completion,
-                    },
-                    {
-                        "file": "selected_trace_windows",
-                        "windows": inspections[:5],
-                    },
-                ],
-                "natural_language_advice": "Add bounded starvation boosting for agent nodes after critical safety filters are satisfied.",
+        if defect_type == "agent_completion_latency":
+            avg_completion = int(
+                trace_summary.get("agent_task_metrics", {})
+                .get("aggregate", {})
+                .get("avg_total_completion_time_us", 0)
+            )
+            return {
+                "file": "trace_summary.json",
+                "metric": "agent_task_metrics.aggregate.avg_total_completion_time_us",
+                "value": avg_completion,
             }
-        ]
-
-    @staticmethod
-    def _deadline_hypothesis(inspections: list[dict[str, Any]]) -> str:
-        agent_launch_near_miss = any(
-            inspection["agent_selected_nodes"] for inspection in inspections
-        )
-        high_cpu_near_miss = any(
-            inspection["max_cpu_utilization"] >= 0.75 for inspection in inspections
-        )
-        if agent_launch_near_miss and high_cpu_near_miss:
-            return "selected windows show agent launches or running agent work near missed critical deadlines under high CPU utilization"
-        if agent_launch_near_miss:
-            return "selected windows show low-criticality agent nodes admitted near missed critical deadlines"
-        if high_cpu_near_miss:
-            return "selected windows show high CPU utilization near missed critical deadlines"
-        return "selected windows around missed critical deadlines indicate insufficient critical slack"
-
-    @staticmethod
-    def _deadline_advice(inspections: list[dict[str, Any]]) -> str:
-        if any(inspection["agent_selected_nodes"] for inspection in inspections):
-            return "Add a critical guard window and CPU headroom before admitting low-criticality agent nodes."
-        return "Increase critical slack reservation and prioritize runnable critical nodes in the inspected windows."
+        return {"file": "trace_summary.json"}

@@ -1,0 +1,15 @@
+metadata:
+  name: trace_analyzer_openai
+
+provider:
+  api: openai
+  base_url: https://api.openai.com/v1
+  api_key_env: OPENAI_API_KEY
+
+model:
+  name: gpt-5.4
+  reasoning_effort: medium
+
+runtime:
+  timeout_s: 60
+  max_windows: 5

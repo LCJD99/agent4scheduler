@@ -6,6 +6,7 @@ class EvolutionState(TypedDict, total=False):
     memory_path: str
     replay_output: str
     scenario_path: str
+    analyzer_config_path: str
     max_candidates: int
     baseline_scheduler: str
     workload_signature: dict[str, Any]

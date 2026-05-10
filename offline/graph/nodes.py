@@ -38,7 +38,9 @@ def retrieve_similar_workloads(state: dict[str, Any]) -> dict[str, Any]:
 
 
 def analyze_scheduler_defects(state: dict[str, Any]) -> dict[str, Any]:
-    findings = TraceAnalyzer().analyze(state["trace_run_path"])
+    findings = TraceAnalyzer(
+        config_path=state.get("analyzer_config_path")
+    ).analyze(state["trace_run_path"])
     refs: list[dict[str, Any]] = []
     for finding in findings:
         refs.extend(finding.get("evidence", []))
