@@ -18,6 +18,7 @@
 - Profiling data lives in `data/profiling_data.csv`. Its `tool_name` column must match `configs/tools/*.yaml` `metadata.name` exactly.
 - Profiling-based latency is the default runtime behavior. Runtime latency must be derived from `tool_name + allocated_resources + scene_complexity`, then combined with runtime pressure slowdown.
 - Scheduler decisions must express explicit per-node `allocated_resources`; do not treat resource demand and scheduler allocation as the same concept unless the implementation is intentionally using demand as the allocation.
+- Online trace writers and offline trace readers must follow the unified trace contract in `docs/traces.md`.
 - Trace output must remain replay-oriented. At minimum, runs should emit `experiment_meta.json`, `workload_events.jsonl`, `task_definitions.jsonl`, `task_outcomes.jsonl`, `scheduler_observation.jsonl`, `scheduler_decision.jsonl`, `runtime_execution.jsonl`, and `trace_summary.json`.
 - `trace_summary.json` is the primary summary view for outcome metrics. It must expose critical-task deadline/frequency satisfaction and agent-task total completion latency in directly consumable form.
 - The default bundled scenario is expected to demonstrate resource contention: under the default config, agent arrival should be able to cause at least one critical-task deadline miss.
