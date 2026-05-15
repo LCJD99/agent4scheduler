@@ -90,13 +90,17 @@ def test_end_to_end_scenario_runs_and_emits_trace(tmp_path):
     assert runtime_execution["running_nodes"][0]["scene_complexity"] == "large"
     assert "localization_node" in trace_summary["critical_task_metrics"]
     assert (
-        trace_summary["critical_task_metrics"]["localization_node"][
+        trace_summary["critical_task_metrics"]["localization_node"]["total_release_count"]
+        > 0
+    )
+    assert (
+        trace_summary["critical_task_metrics"]["navigation_algo_node"][
             "missed_deadline_count"
         ]
         > 0
     )
     assert (
-        trace_summary["critical_task_metrics"]["localization_node"][
+        trace_summary["critical_task_metrics"]["navigation_algo_node"][
             "frequency_satisfaction_rate"
         ]
         < 1.0
@@ -106,3 +110,61 @@ def test_end_to_end_scenario_runs_and_emits_trace(tmp_path):
         trace_summary["agent_task_metrics"]["instances"][0]["total_completion_time_us"]
         > 0
     )
+
+
+def test_end_to_end_critical_workload_is_stable_without_agent_requests(tmp_path):
+    scenario_path = tmp_path / "critical_only.yaml"
+    scenario_path.write_text(
+        "\n".join(
+            [
+                "api_version: sim.scenario/v1",
+                "kind: ScenarioSpec",
+                "",
+                "metadata:",
+                "  name: critical_only_validation",
+                "",
+                "scene_complexity: large",
+                "tick_us: 1000",
+                "duration_us: 1000000",
+                "system_capacity:",
+                "  cpu_cores: 4.0",
+                "  memory_mb: 2048",
+                "  gpu_vram_mb: 2048",
+                "  network_mbps: 100.0",
+                "",
+                "tasks:",
+                "  - configs/tasks/safe_navigation_task.yaml",
+                "",
+                "agent_requests: []",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    code = main(
+        [
+            "--scenario",
+            str(scenario_path),
+            "--trace-output",
+            str(tmp_path / "trace"),
+        ]
+    )
+
+    assert code == 0
+    trace_dir = next(path for path in (tmp_path / "trace").iterdir() if path.is_dir())
+    trace_summary = json.loads(
+        (trace_dir / "trace_summary.json").read_text(encoding="utf-8")
+    )
+
+    localization = trace_summary["critical_task_metrics"]["localization_node"]
+    pointcloud = trace_summary["critical_task_metrics"]["pointcloud_to_laserscan_node"]
+    navigation = trace_summary["critical_task_metrics"]["navigation_algo_node"]
+
+    assert localization["frequency_satisfaction_rate"] == 1.0
+    assert pointcloud["frequency_satisfaction_rate"] == 1.0
+    assert navigation["frequency_satisfaction_rate"] == 1.0
+    assert localization["missed_deadline_count"] == 0
+    assert pointcloud["missed_deadline_count"] == 0
+    assert navigation["missed_deadline_count"] == 0
+    assert navigation["total_release_count"] >= 34

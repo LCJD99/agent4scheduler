@@ -1,4 +1,5 @@
 import argparse
+import importlib.util
 import json
 from datetime import datetime
 from pathlib import Path
@@ -13,6 +14,7 @@ from scheduler_sim.scheduler.base import (
     RunningNode,
     RunnableNode,
     ScheduledNodeAllocation,
+    Scheduler,
     SchedulerObservation,
 )
 from scheduler_sim.scheduler.heuristic import HeuristicScheduler
@@ -32,6 +34,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--scenario")
     parser.add_argument("--trace-output")
     parser.add_argument("--scheduler-params")
+    parser.add_argument("--scheduler-code")
     return parser
 
 
@@ -46,7 +49,7 @@ def main(argv: list[str] | None = None) -> int:
     trace_run_id = datetime.now().strftime("%Y%m%d-%H%M%S")
     trace_output_dir = Path(args.trace_output) / trace_run_id
     generator = _build_workload_generator(bundle)
-    scheduler = _build_scheduler(args.scheduler_params)
+    scheduler = _build_scheduler(args.scheduler_params, args.scheduler_code)
     runtime = RuntimeEngine(
         tick_us=bundle.scenario.tick_us,
         system_capacity=bundle.scenario.system_capacity,
@@ -259,11 +262,42 @@ def _build_workload_generator(bundle) -> WorkloadGenerator:
     )
 
 
-def _build_scheduler(scheduler_params_path: str | None):
-    if scheduler_params_path is None:
+def _build_scheduler(scheduler_params_path: str | None, scheduler_code_path: str | None):
+    if scheduler_params_path is None and scheduler_code_path is None:
         return HeuristicScheduler()
-    parameters = json.loads(Path(scheduler_params_path).read_text(encoding="utf-8"))
+    parameters = {}
+    if scheduler_params_path is not None:
+        parameters = json.loads(Path(scheduler_params_path).read_text(encoding="utf-8"))
+    if scheduler_code_path is not None:
+        return _load_generated_scheduler(
+            scheduler_code_path=Path(scheduler_code_path),
+            parameters=parameters,
+        )
     return ParameterizedHeuristicScheduler(parameters=parameters)
+
+
+def _load_generated_scheduler(
+    *, scheduler_code_path: Path, parameters: dict[str, object]
+) -> Scheduler:
+    spec = importlib.util.spec_from_file_location(
+        f"offline_evolved_scheduler_{scheduler_code_path.stem}",
+        scheduler_code_path,
+    )
+    if spec is None or spec.loader is None:
+        raise ValueError(f"Cannot load scheduler code from {scheduler_code_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    factory = getattr(module, "create_scheduler", None)
+    if factory is None:
+        raise ValueError(
+            f"Generated scheduler {scheduler_code_path} must define create_scheduler"
+        )
+    scheduler = factory(parameters=parameters)
+    if not isinstance(scheduler, Scheduler):
+        raise TypeError(
+            f"Generated scheduler {scheduler_code_path} did not return a Scheduler"
+        )
+    return scheduler
 
 
 def _remove_started_releases(

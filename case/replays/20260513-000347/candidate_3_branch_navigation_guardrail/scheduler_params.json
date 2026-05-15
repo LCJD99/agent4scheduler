@@ -1,0 +1,1 @@
+{"agent_cpu_reservation_cores": 0.75, "agent_starvation_boost_after_us": 1000000, "high_criticality_only_when_backlogged": true}

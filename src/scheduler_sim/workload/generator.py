@@ -34,6 +34,7 @@ class WorkloadGenerator:
     _pending_task_definitions: list[dict[str, object]] = field(default_factory=list)
     _pending_task_outcomes: list[dict[str, object]] = field(default_factory=list)
     _critical_release_counts: dict[str, int] = field(default_factory=dict)
+    _next_critical_release_us: dict[str, int] = field(default_factory=dict)
     _agent_arrival_counts: dict[str, int] = field(default_factory=dict)
 
     @classmethod
@@ -55,8 +56,9 @@ class WorkloadGenerator:
         releases: list[WorkloadRelease] = []
 
         for task in self.critical_tasks:
-            if timestamp_us % task.period_us == 0:
-                task_key = task.task_instance_id or task.node_id
+            task_key = self._critical_task_key(task)
+            next_release_us = self._next_critical_release_us.get(task_key, 0)
+            while timestamp_us >= next_release_us:
                 release_count = self._critical_release_counts.get(task_key, 0) + 1
                 self._critical_release_counts[task_key] = release_count
                 task_instance_id = (
@@ -80,6 +82,8 @@ class WorkloadGenerator:
                         period_us=task.period_us,
                     )
                 )
+                next_release_us += task.period_us
+            self._next_critical_release_us[task_key] = next_release_us
 
         for arrival in self.agent_arrivals:
             if arrival.arrival_time_us == timestamp_us:
@@ -239,6 +243,11 @@ class WorkloadGenerator:
             period_us=None,
             predecessor_instance_ids=predecessor_instance_ids,
         )
+
+    def _critical_task_key(self, task: CriticalTaskSpec) -> str:
+        if task.task_instance_id:
+            return f"{task.task_instance_id}:{task.node_id}"
+        return task.node_id
 
     def _tool_name_for(self, dag: PlannedDag, node_id: str) -> str:
         for node in dag.nodes:

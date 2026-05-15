@@ -30,8 +30,10 @@ def load_offline_analyzer_config(path: str | Path) -> OfflineAnalyzerConfig:
     runtime = _require_mapping(data, "runtime")
 
     provider_api = _require_str(provider, "api")
-    if provider_api != "openai":
-        raise ValueError("Config field provider.api must be openai")
+    if provider_api not in {"openai", "openai_chat_completions"}:
+        raise ValueError(
+            "Config field provider.api must be openai or openai_chat_completions"
+        )
 
     return OfflineAnalyzerConfig(
         metadata_name=_require_str(metadata, "name"),

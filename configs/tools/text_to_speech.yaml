@@ -6,7 +6,8 @@ metadata:
   display_name: Text To Speech
   description: Convert translated text to speech.
 
-default_predicted_latency_us: 3000
+default_predicted_latency_us: 700000
 default_resource_demand:
-  cpu_cores: 0.5
+  cpu_cores: 0.75
   memory_mb: 256
+  gpu_vram_mb: 512

@@ -1,0 +1,2557 @@
+{
+  "advice_branches": [
+    {
+      "branch_id": "branch_critical_headroom",
+      "expected_metric_impact": "Reduce critical deadline misses with possible agent makespan increase.",
+      "key_trace_refs": [
+        {
+          "file": "trace_summary.json"
+        },
+        {
+          "file": "selected_trace_windows",
+          "windows": [
+            {
+              "agent_runnable_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "agent_selected_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "center_timestamp_us": 28571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00001--localization_node",
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-navigation_algo_node-00001--navigation_algo_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00001--localization_node",
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-navigation_algo_node-00001--navigation_algo_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 78571,
+              "max_cpu_utilization": 0.8875,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 0,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "agent_selected_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "center_timestamp_us": 57571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 107571,
+              "max_cpu_utilization": 0.8875,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 7571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 86571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 136571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 36571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 114571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 164571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 64571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 143571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-localization_node-00010--localization_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-navigation_algo_node-00007--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-localization_node-00010--localization_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-navigation_algo_node-00007--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 193571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 93571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+            }
+          ]
+        }
+      ],
+      "parameters": {
+        "agent_cpu_reservation_cores": 1.0,
+        "agent_starvation_boost_after_us": 0
+      },
+      "proposed_heuristic_change": "Reserve CPU headroom for critical releases before admitting low-criticality agent nodes.",
+      "regression_risk": "May under-utilize CPU when critical releases are sparse.",
+      "scheduler_defect_summary": "Critical Deadline Miss: The navigation_algo_node is consistently missing deadlines due to high CPU utilization (up to 94.75%) and contention for resources, likely caused by concurrent execution of the non-critical agent-caption-pipeline task which is also running on the same system.",
+      "similar_case_count": 4,
+      "workload_characterization": "large workload with critical deadline miss rate 0.238"
+    },
+    {
+      "branch_id": "branch_agent_starvation_boost",
+      "expected_metric_impact": "Improve agent completion latency without removing critical-first scheduling.",
+      "key_trace_refs": [
+        {
+          "file": "trace_summary.json"
+        },
+        {
+          "file": "selected_trace_windows",
+          "windows": [
+            {
+              "agent_runnable_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "agent_selected_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "center_timestamp_us": 28571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00001--localization_node",
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-navigation_algo_node-00001--navigation_algo_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00001--localization_node",
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-navigation_algo_node-00001--navigation_algo_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 78571,
+              "max_cpu_utilization": 0.8875,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 0,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "agent_selected_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "center_timestamp_us": 57571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 107571,
+              "max_cpu_utilization": 0.8875,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 7571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 86571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 136571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 36571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 114571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 164571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 64571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 143571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-localization_node-00010--localization_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-navigation_algo_node-00007--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-localization_node-00010--localization_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-navigation_algo_node-00007--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 193571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 93571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+            }
+          ]
+        }
+      ],
+      "parameters": {
+        "agent_cpu_reservation_cores": 0.5,
+        "agent_starvation_boost_after_us": 500000
+      },
+      "proposed_heuristic_change": "Boost agent nodes after bounded waiting time while keeping critical fit checks.",
+      "regression_risk": "Can increase critical contention if the boost threshold is too low.",
+      "scheduler_defect_summary": "Critical Deadline Miss: The navigation_algo_node is consistently missing deadlines due to high CPU utilization (up to 94.75%) and contention for resources, likely caused by concurrent execution of the non-critical agent-caption-pipeline task which is also running on the same system.",
+      "similar_case_count": 4,
+      "workload_characterization": "large workload with agent completion latency 2986000 us"
+    },
+    {
+      "branch_id": "branch_navigation_guardrail",
+      "expected_metric_impact": "Improve navigation critical completion rate while allowing controlled degradation of agent latency.",
+      "key_trace_refs": [
+        {
+          "file": "trace_summary.json"
+        },
+        {
+          "file": "selected_trace_windows",
+          "windows": [
+            {
+              "agent_runnable_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "agent_selected_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "center_timestamp_us": 28571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00001--localization_node",
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-navigation_algo_node-00001--navigation_algo_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00001--localization_node",
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-navigation_algo_node-00001--navigation_algo_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 78571,
+              "max_cpu_utilization": 0.8875,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 0,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "agent_selected_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "center_timestamp_us": 57571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 107571,
+              "max_cpu_utilization": 0.8875,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 7571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 86571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 136571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 36571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 114571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 164571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 64571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 143571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-localization_node-00010--localization_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-navigation_algo_node-00007--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-localization_node-00010--localization_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-navigation_algo_node-00007--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 193571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 93571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+            }
+          ]
+        }
+      ],
+      "parameters": {
+        "agent_cpu_reservation_cores": 0.75,
+        "agent_starvation_boost_after_us": 1000000,
+        "high_criticality_only_when_backlogged": true
+      },
+      "proposed_heuristic_change": "Preserve capacity for high-criticality navigation releases and limit low-criticality admission when navigation backlog is present.",
+      "regression_risk": "May reduce agent throughput during sustained critical bursts and under-utilize spare capacity if backlog detection is too conservative.",
+      "scheduler_defect_summary": "Critical Deadline Miss: The navigation_algo_node is consistently missing deadlines due to high CPU utilization (up to 94.75%) and contention for resources, likely caused by concurrent execution of the non-critical agent-caption-pipeline task which is also running on the same system.",
+      "similar_case_count": 4,
+      "workload_characterization": "large workload with critical deadline miss rate 0.238"
+    }
+  ],
+  "candidate_schedulers": [
+    {
+      "candidate_id": "candidate_1_branch_critical_headroom",
+      "codegen_rationale": "The scheduler prioritizes critical (high-criticality) nodes first, ensuring they are allocated if they fit within available resources. For low-criticality (agent) nodes, it reserves CPU headroom (1 core) to prevent contention and ensure that critical tasks have dedicated CPU resources, reducing deadline misses. This implements the 'branch_critical_headroom' advice to reserve CPU headroom for critical releases before admitting low-criticality agent nodes.",
+      "constraints_satisfied": [
+        "Only allocate resources that fit within remaining observation.available_resources.",
+        "Express explicit allocated_resources for every selected node.",
+        "Use node.resource_demand for requested resources.",
+        "Do not mutate observation or runnable nodes.",
+        "Import only from allowed modules.",
+        "Return a SchedulerDecision with allocations and timestamp."
+      ],
+      "parameters": {
+        "agent_cpu_reservation_cores": 1.0,
+        "agent_starvation_boost_after_us": 0
+      },
+      "prompt_markdown_path": "case/replays/20260513-000347/prompt_debug/candidate_1_branch_critical_headroom_scheduler_codegen_prompt.md",
+      "scheduler_entrypoint": "create_scheduler",
+      "scheduler_source": "from scheduler_sim.domain.resources import ResourceVector\nfrom scheduler_sim.scheduler.base import (\n    RunnableNode,\n    ScheduledNodeAllocation,\n    Scheduler,\n    SchedulerDecision,\n    SchedulerObservation,\n)\n\n\nclass CriticalHeadroomScheduler(Scheduler):\n    def decide(self, observation: SchedulerObservation) -> SchedulerDecision:\n        # Separate nodes by criticality\n        critical_nodes = []\n        agent_nodes = []\n        for node in observation.runnable_nodes:\n            if node.criticality == \"high\":\n                critical_nodes.append(node)\n            else:\n                agent_nodes.append(node)\n        \n        # Sort critical nodes by priority (criticality rank, then instance id)\n        critical_nodes.sort(key=self._priority_key)\n        # Sort agent nodes by priority (same key, but they will be considered after critical)\n        agent_nodes.sort(key=self._priority_key)\n        \n        remaining = observation.available_resources\n        allocations = []\n        \n        # First pass: allocate all critical nodes that fit\n        for node in critical_nodes:\n            if node.resource_demand.fits_within(remaining):\n                allocations.append(\n                    ScheduledNodeAllocation(\n                        node=node,\n                        allocated_resources=node.resource_demand,\n                    )\n                )\n                remaining = remaining - node.resource_demand\n        \n        # Second pass: allocate agent nodes only if there is enough headroom\n        # Use reservation logic: reserve 1 CPU core for critical tasks before admitting agent nodes\n        # Check if after reserving 1 CPU core, there is enough capacity for the agent node\n        for node in agent_nodes:\n            # Reserve headroom: ensure at least 1.0 CPU core remains available for future critical tasks\n            reserved_cpu = min(1.0, remaining.cpu_cores)\n            # Create a resource vector that reflects the remaining capacity after reservation\n            headroom = ResourceVector(\n                cpu_cores=remaining.cpu_cores - reserved_cpu,\n                memory_mb=remaining.memory_mb,\n                gpu_vram_mb=remaining.gpu_vram_mb,\n                network_mbps=remaining.network_mbps,\n            )\n            # Only allocate if the node fits within the headroom (i.e., after reservation)\n            if node.resource_demand.fits_within(headroom):\n                allocations.append(\n                    ScheduledNodeAllocation(\n                        node=node,\n                        allocated_resources=node.resource_demand,\n                    )\n                )\n                remaining = remaining - node.resource_demand\n        \n        return SchedulerDecision(\n            allocations=allocations,\n            timestamp_us=observation.timestamp_us,\n        )\n    \n    def _priority_key(self, node: RunnableNode) -> tuple[int, str]:\n        criticality_rank = {\n            \"high\": 0,\n            \"medium\": 1,\n            \"low\": 2,\n        }\n        return (criticality_rank.get(node.criticality, 3), node.node_instance_id)\n\n\ndef create_scheduler(parameters=None):\n    return CriticalHeadroomScheduler()",
+      "scheduler_type": "generated_python_scheduler",
+      "source_advice_branch": "branch_critical_headroom"
+    },
+    {
+      "candidate_id": "candidate_2_branch_agent_starvation_boost",
+      "codegen_rationale": "Implements a two-phase scheduling algorithm: critical nodes are scheduled first in criticality order, then agent nodes are scheduled in starvation-boost order (longest waiting agents first, with a configurable waiting time threshold to boost priority). This balances critical deadline protection with fairness to agent tasks that may be starved if critical tasks dominate resources.",
+      "constraints_satisfied": [
+        "Allocates only resources that fit within remaining observation.available_resources",
+        "Expresses explicit allocated_resources for every selected node",
+        "Preserves critical-first ordering",
+        "Uses only allowed fields (cpu_cores, memory_mb, gpu_vram_mb, network_mbps)",
+        "Implements the branch's starvation-boost heuristic for agent nodes",
+        "Does not read files, access network, or use forbidden imports"
+      ],
+      "parameters": {
+        "agent_cpu_reservation_cores": 0.5,
+        "agent_starvation_boost_after_us": 500000
+      },
+      "prompt_markdown_path": "case/replays/20260513-000347/prompt_debug/candidate_2_branch_agent_starvation_boost_scheduler_codegen_prompt.md",
+      "scheduler_entrypoint": "create_scheduler",
+      "scheduler_source": "from scheduler_sim.domain.resources import ResourceVector\nfrom scheduler_sim.scheduler.base import (\n    RunnableNode,\n    ScheduledNodeAllocation,\n    Scheduler,\n    SchedulerDecision,\n    SchedulerObservation,\n)\n\n\nclass HeuristicScheduler(Scheduler):\n    def __init__(self, parameters=None):\n        # Extract parameters if provided, otherwise use defaults\n        if parameters is None:\n            parameters = {}\n        self.agent_cpu_reservation_cores = parameters.get(\"agent_cpu_reservation_cores\", 0.5)\n        self.agent_starvation_boost_after_us = parameters.get(\"agent_starvation_boost_after_us\", 500000)\n    \n    def decide(self, observation: SchedulerObservation) -> SchedulerDecision:\n        remaining_capacity = observation.available_resources\n        allocations: list[ScheduledNodeAllocation] = []\n        \n        # Separate runnable nodes into critical and agent categories\n        critical_nodes = []\n        agent_nodes = []\n        for node in observation.runnable_nodes:\n            if node.source.startswith(\"critical-\"):\n                critical_nodes.append(node)\n            else:\n                agent_nodes.append(node)\n        \n        # Sort critical nodes by their priority (criticality, then instance ID)\n        critical_nodes.sort(key=self._critical_priority_key)\n        \n        # Sort agent nodes by waiting time (longest waiting first), then by instance ID\n        # For now, we use timestamp_us as a proxy for arrival time; lower timestamp means longer waiting\n        agent_nodes.sort(key=lambda node: (-node.timestamp_us, node.node_instance_id))\n        \n        # First pass: schedule all critical nodes that fit\n        for node in critical_nodes:\n            if node.resource_demand.fits_within(remaining_capacity):\n                allocations.append(\n                    ScheduledNodeAllocation(\n                        node=node,\n                        allocated_resources=node.resource_demand,\n                    )\n                )\n                remaining_capacity = remaining_capacity - node.resource_demand\n        \n        # Compute remaining capacity after critical nodes\n        # For agent scheduling, we may need to reserve some CPU for future critical releases\n        # But we don't have future knowledge, so we use a reservation heuristic based on parameters\n        # However, the advice branch suggests boosting agent nodes after a waiting time,\n        # not necessarily reserving capacity. We'll implement a starvation-boost mechanism:\n        # If an agent node has been waiting longer than the threshold, we prioritize it\n        # among other agent nodes, but still after critical nodes.\n        \n        # For agent nodes, we schedule them in order of longest waiting first,\n        # respecting the reservation of CPU for critical tasks.\n        # We'll implement a simple reservation: reduce available CPU for agents by\n        # agent_cpu_reservation_cores, but only if there are critical nodes present?\n        # Actually, the branch advice says: \"Boost agent nodes after bounded waiting time while keeping critical fit checks.\"\n        # So we keep critical fit checks (already done) and then boost agents that have waited too long.\n        \n        # We'll sort agent nodes by whether they have waited longer than threshold,\n        # then by waiting time descending.\n        def agent_sort_key(node):\n            # Wait time can be approximated by current time minus node.timestamp_us\n            # But we don't have the creation time; node.timestamp_us is when it became runnable?\n            # We'll assume node.timestamp_us is the time it became runnable.\n            wait_time_us = observation.timestamp_us - node.timestamp_us\n            # If wait_time_us > threshold, give it a boost (lower sort key)\n            boosted = 0 if wait_time_us >= self.agent_starvation_boost_after_us else 1\n            # Among boosted or non-boosted, sort by longest waiting first (descending wait_time_us)\n            return (boosted, -wait_time_us, node.node_instance_id)\n        \n        agent_nodes.sort(key=agent_sort_key)\n        \n        # Second pass: schedule agent nodes that fit\n        for node in agent_nodes:\n            if node.resource_demand.fits_within(remaining_capacity):\n                allocations.append(\n                    ScheduledNodeAllocation(\n                        node=node,\n                        allocated_resources=node.resource_demand,\n                    )\n                )\n                remaining_capacity = remaining_capacity - node.resource_demand\n        \n        return SchedulerDecision(\n            allocations=allocations,\n            timestamp_us=observation.timestamp_us,\n        )\n    \n    def _critical_priority_key(self, node: RunnableNode) -> tuple[int, str]:\n        # Critical nodes are scheduled first; among them, higher criticality (high > medium > low)\n        criticality_rank = {\n            \"high\": 0,\n            \"medium\": 1,\n            \"low\": 2,\n        }\n        return (criticality_rank.get(node.criticality, 3), node.node_instance_id)\n\ndef create_scheduler(parameters=None):\n    return HeuristicScheduler(parameters=parameters)",
+      "scheduler_type": "generated_python_scheduler",
+      "source_advice_branch": "branch_agent_starvation_boost"
+    },
+    {
+      "candidate_id": "candidate_3_branch_navigation_guardrail",
+      "codegen_rationale": "Scheduler prioritizes high-criticality navigation_algo_node tasks, reserves CPU capacity when a backlog of such tasks exists to ensure they can be scheduled without contention, and only admits agent nodes when capacity remains after reservation. This addresses the critical deadline miss defect by protecting navigation tasks from CPU resource contention from agent workloads.",
+      "constraints_satisfied": [
+        "Only allocate resources that fit within remaining available_resources",
+        "Express explicit allocated_resources for every selected node",
+        "Use node.resource_demand for requested resources",
+        "Do not use gpu_units, gpu_memory_mb, memory, or network_bandwidth_mbps",
+        "Do not import RunnableNode from scheduler_sim.domain.resources",
+        "Only import allowed symbols from allowed modules",
+        "Do not call super().__init__",
+        "Do not read or write files",
+        "Do not access network, environment variables, subprocesses, dynamic imports, eval, exec, or compile",
+        "Do not import third-party packages",
+        "Do not mutate the observation or runnable nodes"
+      ],
+      "parameters": {
+        "agent_cpu_reservation_cores": 0.75,
+        "agent_starvation_boost_after_us": 1000000,
+        "high_criticality_only_when_backlogged": true
+      },
+      "prompt_markdown_path": "case/replays/20260513-000347/prompt_debug/candidate_3_branch_navigation_guardrail_scheduler_codegen_prompt.md",
+      "scheduler_entrypoint": "create_scheduler",
+      "scheduler_source": "from scheduler_sim.domain.resources import ResourceVector\nfrom scheduler_sim.scheduler.base import (\n    RunnableNode,\n    ScheduledNodeAllocation,\n    Scheduler,\n    SchedulerDecision,\n    SchedulerObservation,\n)\n\n\nclass NavigationGuardrailScheduler(Scheduler):\n    def __init__(self, parameters=None):\n        self.agent_cpu_reservation_cores = 0.75\n        self.agent_starvation_boost_after_us = 1000000\n        self.high_criticality_only_when_backlogged = True\n        if parameters:\n            self.agent_cpu_reservation_cores = parameters.get('agent_cpu_reservation_cores', self.agent_cpu_reservation_cores)\n            self.agent_starvation_boost_after_us = parameters.get('agent_starvation_boost_after_us', self.agent_starvation_boost_after_us)\n            self.high_criticality_only_when_backlogged = parameters.get('high_criticality_only_when_backlogged', self.high_criticality_only_when_backlogged)\n\n    def decide(self, observation: SchedulerObservation) -> SchedulerDecision:\n        runnable_nodes = observation.runnable_nodes\n        running_nodes = observation.running_nodes\n        remaining_capacity = observation.available_resources\n        allocations = []\n\n        # Classify nodes\n        critical_nodes = []\n        agent_nodes = []\n        for node in runnable_nodes:\n            if node.criticality == 'high' and 'navigation_algo_node' in node.tool_name:\n                critical_nodes.append(node)\n            else:\n                agent_nodes.append(node)\n\n        # Determine if backlog condition exists\n        backlog_detected = len(critical_nodes) > 0\n\n        # Sort critical nodes by instance id for deterministic ordering\n        critical_nodes.sort(key=lambda x: x.node_instance_id)\n\n        # Allocate critical nodes first (always prioritize)\n        for node in critical_nodes:\n            if node.resource_demand.fits_within(remaining_capacity):\n                allocations.append(ScheduledNodeAllocation(\n                    node=node,\n                    allocated_resources=node.resource_demand,\n                ))\n                remaining_capacity = remaining_capacity - node.resource_demand\n\n        # Apply guardrail: reserve CPU capacity for future critical releases when backlog is detected\n        if backlog_detected and self.high_criticality_only_when_backlogged:\n            # Reserve agent CPU reservation cores\n            agent_reservation = ResourceVector(cpu_cores=self.agent_cpu_reservation_cores)\n            if remaining_capacity.cpu_cores < self.agent_cpu_reservation_cores:\n                # Not enough capacity to reserve, skip agent nodes\n                return SchedulerDecision(\n                    allocations=allocations,\n                    timestamp_us=observation.timestamp_us,\n                )\n            # Reduce remaining capacity by reservation\n            remaining_capacity = remaining_capacity - agent_reservation\n\n        # Sort agent nodes by starvation boost time (older first)\n        agent_nodes.sort(key=lambda x: -x.timestamp_us)\n\n        # Allocate agent nodes if they fit\n        for node in agent_nodes:\n            if node.resource_demand.fits_within(remaining_capacity):\n                allocations.append(ScheduledNodeAllocation(\n                    node=node,\n                    allocated_resources=node.resource_demand,\n                ))\n                remaining_capacity = remaining_capacity - node.resource_demand\n\n        return SchedulerDecision(\n            allocations=allocations,\n            timestamp_us=observation.timestamp_us,\n        )\n\n\ndef create_scheduler(parameters=None):\n    return NavigationGuardrailScheduler(parameters=parameters)",
+      "scheduler_type": "generated_python_scheduler",
+      "source_advice_branch": "branch_navigation_guardrail"
+    }
+  ],
+  "critical_trace_refs": [
+    {
+      "file": "trace_summary.json"
+    },
+    {
+      "file": "selected_trace_windows",
+      "windows": [
+        {
+          "agent_runnable_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "agent_selected_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "center_timestamp_us": 28571,
+          "critical_runnable_nodes": [
+            "critical-localization_node-00001--localization_node",
+            "critical-localization_node-00002--localization_node",
+            "critical-localization_node-00003--localization_node",
+            "critical-localization_node-00004--localization_node",
+            "critical-navigation_algo_node-00001--navigation_algo_node",
+            "critical-navigation_algo_node-00002--navigation_algo_node",
+            "critical-navigation_algo_node-00003--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+          ],
+          "critical_selected_nodes": [
+            "critical-localization_node-00001--localization_node",
+            "critical-localization_node-00002--localization_node",
+            "critical-localization_node-00003--localization_node",
+            "critical-localization_node-00004--localization_node",
+            "critical-navigation_algo_node-00001--navigation_algo_node",
+            "critical-navigation_algo_node-00002--navigation_algo_node",
+            "critical-navigation_algo_node-00003--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+          ],
+          "end_timestamp_us": 78571,
+          "max_cpu_utilization": 0.8875,
+          "max_gpu_utilization": 0.375,
+          "reason": "critical_deadline_miss",
+          "running_agent_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "start_timestamp_us": 0,
+          "target_node_id": "navigation_algo_node",
+          "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+        },
+        {
+          "agent_runnable_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "agent_selected_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "center_timestamp_us": 57571,
+          "critical_runnable_nodes": [
+            "critical-localization_node-00002--localization_node",
+            "critical-localization_node-00003--localization_node",
+            "critical-localization_node-00004--localization_node",
+            "critical-localization_node-00005--localization_node",
+            "critical-localization_node-00006--localization_node",
+            "critical-navigation_algo_node-00002--navigation_algo_node",
+            "critical-navigation_algo_node-00003--navigation_algo_node",
+            "critical-navigation_algo_node-00004--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+          ],
+          "critical_selected_nodes": [
+            "critical-localization_node-00002--localization_node",
+            "critical-localization_node-00003--localization_node",
+            "critical-localization_node-00004--localization_node",
+            "critical-localization_node-00005--localization_node",
+            "critical-localization_node-00006--localization_node",
+            "critical-navigation_algo_node-00002--navigation_algo_node",
+            "critical-navigation_algo_node-00003--navigation_algo_node",
+            "critical-navigation_algo_node-00004--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+          ],
+          "end_timestamp_us": 107571,
+          "max_cpu_utilization": 0.8875,
+          "max_gpu_utilization": 0.375,
+          "reason": "critical_deadline_miss",
+          "running_agent_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "start_timestamp_us": 7571,
+          "target_node_id": "navigation_algo_node",
+          "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+        },
+        {
+          "agent_runnable_nodes": [],
+          "agent_selected_nodes": [],
+          "center_timestamp_us": 86571,
+          "critical_runnable_nodes": [
+            "critical-localization_node-00003--localization_node",
+            "critical-localization_node-00004--localization_node",
+            "critical-localization_node-00005--localization_node",
+            "critical-localization_node-00006--localization_node",
+            "critical-localization_node-00007--localization_node",
+            "critical-navigation_algo_node-00003--navigation_algo_node",
+            "critical-navigation_algo_node-00004--navigation_algo_node",
+            "critical-navigation_algo_node-00005--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+          ],
+          "critical_selected_nodes": [
+            "critical-localization_node-00003--localization_node",
+            "critical-localization_node-00004--localization_node",
+            "critical-localization_node-00005--localization_node",
+            "critical-localization_node-00006--localization_node",
+            "critical-localization_node-00007--localization_node",
+            "critical-navigation_algo_node-00003--navigation_algo_node",
+            "critical-navigation_algo_node-00004--navigation_algo_node",
+            "critical-navigation_algo_node-00005--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+          ],
+          "end_timestamp_us": 136571,
+          "max_cpu_utilization": 0.9475,
+          "max_gpu_utilization": 0.375,
+          "reason": "critical_deadline_miss",
+          "running_agent_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "start_timestamp_us": 36571,
+          "target_node_id": "navigation_algo_node",
+          "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+        },
+        {
+          "agent_runnable_nodes": [],
+          "agent_selected_nodes": [],
+          "center_timestamp_us": 114571,
+          "critical_runnable_nodes": [
+            "critical-localization_node-00005--localization_node",
+            "critical-localization_node-00006--localization_node",
+            "critical-localization_node-00007--localization_node",
+            "critical-localization_node-00008--localization_node",
+            "critical-localization_node-00009--localization_node",
+            "critical-navigation_algo_node-00004--navigation_algo_node",
+            "critical-navigation_algo_node-00005--navigation_algo_node",
+            "critical-navigation_algo_node-00006--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+          ],
+          "critical_selected_nodes": [
+            "critical-localization_node-00005--localization_node",
+            "critical-localization_node-00006--localization_node",
+            "critical-localization_node-00007--localization_node",
+            "critical-localization_node-00008--localization_node",
+            "critical-localization_node-00009--localization_node",
+            "critical-navigation_algo_node-00004--navigation_algo_node",
+            "critical-navigation_algo_node-00005--navigation_algo_node",
+            "critical-navigation_algo_node-00006--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+          ],
+          "end_timestamp_us": 164571,
+          "max_cpu_utilization": 0.9475,
+          "max_gpu_utilization": 0.375,
+          "reason": "critical_deadline_miss",
+          "running_agent_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "start_timestamp_us": 64571,
+          "target_node_id": "navigation_algo_node",
+          "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+        },
+        {
+          "agent_runnable_nodes": [],
+          "agent_selected_nodes": [],
+          "center_timestamp_us": 143571,
+          "critical_runnable_nodes": [
+            "critical-localization_node-00006--localization_node",
+            "critical-localization_node-00007--localization_node",
+            "critical-localization_node-00008--localization_node",
+            "critical-localization_node-00009--localization_node",
+            "critical-localization_node-00010--localization_node",
+            "critical-navigation_algo_node-00005--navigation_algo_node",
+            "critical-navigation_algo_node-00006--navigation_algo_node",
+            "critical-navigation_algo_node-00007--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+          ],
+          "critical_selected_nodes": [
+            "critical-localization_node-00006--localization_node",
+            "critical-localization_node-00007--localization_node",
+            "critical-localization_node-00008--localization_node",
+            "critical-localization_node-00009--localization_node",
+            "critical-localization_node-00010--localization_node",
+            "critical-navigation_algo_node-00005--navigation_algo_node",
+            "critical-navigation_algo_node-00006--navigation_algo_node",
+            "critical-navigation_algo_node-00007--navigation_algo_node",
+            "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+            "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+          ],
+          "end_timestamp_us": 193571,
+          "max_cpu_utilization": 0.9475,
+          "max_gpu_utilization": 0.375,
+          "reason": "critical_deadline_miss",
+          "running_agent_nodes": [
+            "agent-caption-pipeline-00018000-001--image_captioning"
+          ],
+          "start_timestamp_us": 93571,
+          "target_node_id": "navigation_algo_node",
+          "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+        }
+      ]
+    }
+  ],
+  "evolution_run_id": "20260513-000347",
+  "replay_results": [
+    {
+      "accepted": true,
+      "candidate_id": "candidate_1_branch_critical_headroom",
+      "exit_code": 0,
+      "metrics": {
+        "agent_avg_completion_time_us": 2987000,
+        "critical_missed_deadline_count": 100
+      },
+      "scheduler_code": "case/replays/20260513-000347/candidate_1_branch_critical_headroom/scheduler_candidate.py",
+      "score": -100001.00033489618,
+      "trace_run": "case/replays/20260513-000347/candidate_1_branch_critical_headroom/20260513-000547"
+    },
+    {
+      "accepted": true,
+      "candidate_id": "candidate_2_branch_agent_starvation_boost",
+      "exit_code": 0,
+      "metrics": {
+        "agent_avg_completion_time_us": 2986000,
+        "critical_missed_deadline_count": 100
+      },
+      "scheduler_code": "case/replays/20260513-000347/candidate_2_branch_agent_starvation_boost/scheduler_candidate.py",
+      "score": -100001.0,
+      "trace_run": "case/replays/20260513-000347/candidate_2_branch_agent_starvation_boost/20260513-000548"
+    },
+    {
+      "accepted": true,
+      "candidate_id": "candidate_3_branch_navigation_guardrail",
+      "exit_code": 0,
+      "metrics": {
+        "agent_avg_completion_time_us": 2986000,
+        "critical_missed_deadline_count": 100
+      },
+      "scheduler_code": "case/replays/20260513-000347/candidate_3_branch_navigation_guardrail/scheduler_candidate.py",
+      "score": -100001.0,
+      "trace_run": "case/replays/20260513-000347/candidate_3_branch_navigation_guardrail/20260513-000549"
+    }
+  ],
+  "selected_candidate": {
+    "accepted": true,
+    "candidate_id": "candidate_2_branch_agent_starvation_boost",
+    "exit_code": 0,
+    "metrics": {
+      "agent_avg_completion_time_us": 2986000,
+      "critical_missed_deadline_count": 100
+    },
+    "scheduler_code": "case/replays/20260513-000347/candidate_2_branch_agent_starvation_boost/scheduler_candidate.py",
+    "score": -100001.0,
+    "trace_run": "case/replays/20260513-000347/candidate_2_branch_agent_starvation_boost/20260513-000548"
+  },
+  "similar_cases": [
+    {
+      "advice": [
+        {
+          "branch_id": "branch_critical_headroom",
+          "expected_metric_impact": "Reduce critical deadline misses with possible agent makespan increase.",
+          "key_trace_refs": [
+            {
+              "file": "trace_summary.json"
+            },
+            {
+              "file": "selected_trace_windows",
+              "windows": [
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "center_timestamp_us": 28571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-navigation_algo_node-00001--navigation_algo_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-navigation_algo_node-00001--navigation_algo_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 78571,
+                  "max_cpu_utilization": 0.8875,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 0,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "center_timestamp_us": 57571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 107571,
+                  "max_cpu_utilization": 0.8875,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 7571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 86571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 136571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 36571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 114571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 164571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 64571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 143571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-localization_node-00010--localization_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-navigation_algo_node-00007--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-localization_node-00010--localization_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-navigation_algo_node-00007--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 193571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 93571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "agent_cpu_reservation_cores": 1.0,
+            "agent_starvation_boost_after_us": 0
+          },
+          "proposed_heuristic_change": "Reserve CPU headroom for critical releases before admitting low-criticality agent nodes.",
+          "regression_risk": "May under-utilize CPU when critical releases are sparse.",
+          "scheduler_defect_summary": "deadline_miss: The navigation_algo_node is consistently missing its deadlines (28.6% satisfaction rate) while other critical nodes meet theirs. The selected trace windows show high CPU utilization (up to 94.75%) and the presence of an agent task (image_captioning) running concurrently. This suggests resource contention where the non-critical agent task is consuming CPU time, delaying the critical navigation algorithm execution.",
+          "similar_case_count": 2,
+          "workload_characterization": "large workload with critical deadline miss rate 0.238"
+        },
+        {
+          "branch_id": "branch_agent_starvation_boost",
+          "expected_metric_impact": "Improve agent completion latency without removing critical-first scheduling.",
+          "key_trace_refs": [
+            {
+              "file": "trace_summary.json"
+            },
+            {
+              "file": "selected_trace_windows",
+              "windows": [
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "center_timestamp_us": 28571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-navigation_algo_node-00001--navigation_algo_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-navigation_algo_node-00001--navigation_algo_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 78571,
+                  "max_cpu_utilization": 0.8875,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 0,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "center_timestamp_us": 57571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 107571,
+                  "max_cpu_utilization": 0.8875,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 7571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 86571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 136571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 36571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 114571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 164571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 64571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 143571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-localization_node-00010--localization_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-navigation_algo_node-00007--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-localization_node-00010--localization_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-navigation_algo_node-00007--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 193571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 93571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "agent_cpu_reservation_cores": 0.5,
+            "agent_starvation_boost_after_us": 500000
+          },
+          "proposed_heuristic_change": "Boost agent nodes after bounded waiting time while keeping critical fit checks.",
+          "regression_risk": "Can increase critical contention if the boost threshold is too low.",
+          "scheduler_defect_summary": "deadline_miss: The navigation_algo_node is consistently missing its deadlines (28.6% satisfaction rate) while other critical nodes meet theirs. The selected trace windows show high CPU utilization (up to 94.75%) and the presence of an agent task (image_captioning) running concurrently. This suggests resource contention where the non-critical agent task is consuming CPU time, delaying the critical navigation algorithm execution.",
+          "similar_case_count": 2,
+          "workload_characterization": "large workload with agent completion latency 2986000 us"
+        }
+      ],
+      "distance": 0.0,
+      "metrics": {
+        "agent_avg_completion_time_us": 2986000,
+        "critical_missed_deadline_count": 100
+      },
+      "scheduler_version": "candidate_1_branch_critical_headroom",
+      "trace_run": "case/replays/candidate_1_branch_critical_headroom/20260512-140516",
+      "workload_signature": {
+        "agent_arrival_density": 0.75,
+        "agent_release_count": 3,
+        "agent_request_count": 1,
+        "avg_agent_completion_time_us": 2986000,
+        "avg_cpu_utilization": 0.5475593750000001,
+        "avg_critical_period_us": 32857,
+        "avg_gpu_utilization": 0.2175,
+        "cpu_capacity": 4.0,
+        "critical_deadline_miss_rate": 0.23809523809523808,
+        "critical_node_count": 3,
+        "gpu_capacity": 2048,
+        "high_criticality_node_count": 2,
+        "memory_capacity": 4096,
+        "min_critical_period_us": 20000,
+        "network_capacity": 100.0,
+        "scenario_name": "home_eqa_scenario_001",
+        "scenario_path": "/home/dawnat9/code-workspace/ai4heuristic/agent4scheduler/configs/scenarios/home_eqa_scenario_001.yaml",
+        "scene_complexity": "large"
+      }
+    },
+    {
+      "advice": [
+        {
+          "branch_id": "branch_critical_headroom",
+          "expected_metric_impact": "Reduce critical deadline misses with possible agent makespan increase.",
+          "key_trace_refs": [
+            {
+              "file": "trace_summary.json",
+              "metric": "critical_task_metrics.*.missed_deadline_count",
+              "value": 100
+            },
+            {
+              "file": "selected_trace_windows",
+              "windows": [
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "center_timestamp_us": 28571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-navigation_algo_node-00001--navigation_algo_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-navigation_algo_node-00001--navigation_algo_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 78571,
+                  "max_cpu_utilization": 0.8875,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 0,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "center_timestamp_us": 57571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 107571,
+                  "max_cpu_utilization": 0.8875,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 7571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 86571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 136571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 36571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 114571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 164571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 64571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 143571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-localization_node-00010--localization_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-navigation_algo_node-00007--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-localization_node-00010--localization_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-navigation_algo_node-00007--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 193571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 93571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "agent_cpu_reservation_cores": 1.0,
+            "agent_starvation_boost_after_us": 0
+          },
+          "proposed_heuristic_change": "Reserve CPU headroom for critical releases before admitting low-criticality agent nodes.",
+          "regression_risk": "May under-utilize CPU when critical releases are sparse.",
+          "scheduler_defect_summary": "critical_deadline_miss: The navigation_algo_node misses deadlines due to CPU contention from a concurrently running agent task (image_captioning), which runs at high CPU utilization (up to 94.75%) and may monopolize CPU resources, preventing the critical navigation node from meeting its timing constraints.",
+          "similar_case_count": 3,
+          "workload_characterization": "large workload with critical deadline miss rate 0.238"
+        },
+        {
+          "branch_id": "branch_agent_starvation_boost",
+          "expected_metric_impact": "Improve agent completion latency without removing critical-first scheduling.",
+          "key_trace_refs": [
+            {
+              "file": "trace_summary.json",
+              "metric": "critical_task_metrics.*.missed_deadline_count",
+              "value": 100
+            },
+            {
+              "file": "selected_trace_windows",
+              "windows": [
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "center_timestamp_us": 28571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-navigation_algo_node-00001--navigation_algo_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-navigation_algo_node-00001--navigation_algo_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 78571,
+                  "max_cpu_utilization": 0.8875,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 0,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "center_timestamp_us": 57571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00002--localization_node",
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-navigation_algo_node-00002--navigation_algo_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 107571,
+                  "max_cpu_utilization": 0.8875,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 7571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 86571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00003--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 136571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 36571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 114571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-navigation_algo_node-00004--navigation_algo_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 164571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 64571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+                },
+                {
+                  "agent_runnable_nodes": [],
+                  "agent_selected_nodes": [],
+                  "center_timestamp_us": 143571,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-localization_node-00010--localization_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-navigation_algo_node-00007--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00006--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-localization_node-00009--localization_node",
+                    "critical-localization_node-00010--localization_node",
+                    "critical-navigation_algo_node-00005--navigation_algo_node",
+                    "critical-navigation_algo_node-00006--navigation_algo_node",
+                    "critical-navigation_algo_node-00007--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 193571,
+                  "max_cpu_utilization": 0.9475,
+                  "max_gpu_utilization": 0.375,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning"
+                  ],
+                  "start_timestamp_us": 93571,
+                  "target_node_id": "navigation_algo_node",
+                  "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "agent_cpu_reservation_cores": 0.5,
+            "agent_starvation_boost_after_us": 500000
+          },
+          "proposed_heuristic_change": "Boost agent nodes after bounded waiting time while keeping critical fit checks.",
+          "regression_risk": "Can increase critical contention if the boost threshold is too low.",
+          "scheduler_defect_summary": "critical_deadline_miss: The navigation_algo_node misses deadlines due to CPU contention from a concurrently running agent task (image_captioning), which runs at high CPU utilization (up to 94.75%) and may monopolize CPU resources, preventing the critical navigation node from meeting its timing constraints.",
+          "similar_case_count": 3,
+          "workload_characterization": "large workload with agent completion latency 2986000 us"
+        }
+      ],
+      "distance": 0.0,
+      "metrics": {
+        "agent_avg_completion_time_us": 2987000,
+        "critical_missed_deadline_count": 100
+      },
+      "scheduler_version": "candidate_1_branch_critical_headroom",
+      "trace_run": "case/replays/20260512-142444/candidate_1_branch_critical_headroom/20260512-142528",
+      "workload_signature": {
+        "agent_arrival_density": 0.75,
+        "agent_release_count": 3,
+        "agent_request_count": 1,
+        "avg_agent_completion_time_us": 2986000,
+        "avg_cpu_utilization": 0.5475593750000001,
+        "avg_critical_period_us": 32857,
+        "avg_gpu_utilization": 0.2175,
+        "cpu_capacity": 4.0,
+        "critical_deadline_miss_rate": 0.23809523809523808,
+        "critical_node_count": 3,
+        "gpu_capacity": 2048,
+        "high_criticality_node_count": 2,
+        "memory_capacity": 4096,
+        "min_critical_period_us": 20000,
+        "network_capacity": 100.0,
+        "scenario_name": "home_eqa_scenario_001",
+        "scenario_path": "/home/dawnat9/code-workspace/ai4heuristic/agent4scheduler/configs/scenarios/home_eqa_scenario_001.yaml",
+        "scene_complexity": "large"
+      }
+    },
+    {
+      "advice": [
+        {
+          "branch_id": "branch_critical_headroom",
+          "expected_metric_impact": "Reduce critical deadline misses with possible agent makespan increase.",
+          "key_trace_refs": [
+            {
+              "file": "trace_summary.json"
+            },
+            {
+              "file": "selected_trace_windows",
+              "windows": [
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "center_timestamp_us": 40000,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 90000,
+                  "max_cpu_utilization": 0.625,
+                  "max_gpu_utilization": 0.0,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "start_timestamp_us": 0,
+                  "target_node_id": "localization_node",
+                  "target_node_instance_id": "critical-localization_node-00004--localization_node"
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "agent_cpu_reservation_cores": 1.0,
+            "agent_starvation_boost_after_us": 0
+          },
+          "proposed_heuristic_change": "Reserve CPU headroom for critical releases before admitting low-criticality agent nodes.",
+          "regression_risk": "May under-utilize CPU when critical releases are sparse.",
+          "scheduler_defect_summary": "deadline_miss_cpu_contention: The deadline miss for localization_node instance 00004 is likely due to high CPU utilization (62.5%) caused by concurrent execution of multiple critical and agent nodes within the same time window, leading to contention.",
+          "similar_case_count": 0,
+          "workload_characterization": "large workload with critical deadline miss rate 0.125"
+        },
+        {
+          "branch_id": "branch_agent_starvation_boost",
+          "expected_metric_impact": "Improve agent completion latency without removing critical-first scheduling.",
+          "key_trace_refs": [
+            {
+              "file": "trace_summary.json"
+            },
+            {
+              "file": "selected_trace_windows",
+              "windows": [
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "center_timestamp_us": 40000,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 90000,
+                  "max_cpu_utilization": 0.625,
+                  "max_gpu_utilization": 0.0,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "start_timestamp_us": 0,
+                  "target_node_id": "localization_node",
+                  "target_node_instance_id": "critical-localization_node-00004--localization_node"
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "agent_cpu_reservation_cores": 0.5,
+            "agent_starvation_boost_after_us": 500000
+          },
+          "proposed_heuristic_change": "Boost agent nodes after bounded waiting time while keeping critical fit checks.",
+          "regression_risk": "Can increase critical contention if the boost threshold is too low.",
+          "scheduler_defect_summary": "deadline_miss_cpu_contention: The deadline miss for localization_node instance 00004 is likely due to high CPU utilization (62.5%) caused by concurrent execution of multiple critical and agent nodes within the same time window, leading to contention.",
+          "similar_case_count": 0,
+          "workload_characterization": "large workload with agent completion latency 25000 us"
+        }
+      ],
+      "distance": 2961002.3019958558,
+      "metrics": {
+        "agent_avg_completion_time_us": 25000,
+        "critical_missed_deadline_count": 1
+      },
+      "scheduler_version": "candidate_1_branch_critical_headroom",
+      "trace_run": "case/replays/candidate_1_branch_critical_headroom/20260511-232920",
+      "workload_signature": {
+        "agent_arrival_density": 30.0,
+        "agent_release_count": 3,
+        "agent_request_count": 1,
+        "avg_agent_completion_time_us": 25000,
+        "avg_cpu_utilization": 0.1825,
+        "avg_critical_period_us": 32866,
+        "avg_gpu_utilization": 0.0,
+        "cpu_capacity": 4.0,
+        "critical_deadline_miss_rate": 0.125,
+        "critical_node_count": 3,
+        "gpu_capacity": 0,
+        "high_criticality_node_count": 2,
+        "memory_capacity": 1024,
+        "min_critical_period_us": 20000,
+        "network_capacity": 100.0,
+        "scenario_name": "home_eqa_scenario_001",
+        "scenario_path": "/home/dawnat9/code-workspace/ai4heuristic/agent4scheduler/configs/scenarios/home_eqa_scenario_001.yaml",
+        "scene_complexity": "large"
+      }
+    },
+    {
+      "advice": [
+        {
+          "branch_id": "branch_critical_headroom",
+          "expected_metric_impact": "Reduce critical deadline misses with possible agent makespan increase.",
+          "key_trace_refs": [
+            {
+              "file": "trace_summary.json"
+            },
+            {
+              "file": "selected_trace_windows",
+              "windows": [
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "center_timestamp_us": 40000,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 90000,
+                  "max_cpu_utilization": 0.625,
+                  "max_gpu_utilization": 0.0,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "start_timestamp_us": 0,
+                  "target_node_id": "localization_node",
+                  "target_node_instance_id": "critical-localization_node-00004--localization_node"
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "agent_cpu_reservation_cores": 1.0,
+            "agent_starvation_boost_after_us": 0
+          },
+          "proposed_heuristic_change": "Reserve CPU headroom for critical releases before admitting low-criticality agent nodes.",
+          "regression_risk": "May under-utilize CPU when critical releases are sparse.",
+          "scheduler_defect_summary": "deadline_miss: Concurrent execution of agent tasks (image_captioning, text_to_speech, text_translation) increased CPU utilization (max 62.5%), causing the critical localization_node instance 00004 to miss its deadline.",
+          "similar_case_count": 1,
+          "workload_characterization": "large workload with critical deadline miss rate 0.125"
+        },
+        {
+          "branch_id": "branch_agent_starvation_boost",
+          "expected_metric_impact": "Improve agent completion latency without removing critical-first scheduling.",
+          "key_trace_refs": [
+            {
+              "file": "trace_summary.json"
+            },
+            {
+              "file": "selected_trace_windows",
+              "windows": [
+                {
+                  "agent_runnable_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "agent_selected_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "center_timestamp_us": 40000,
+                  "critical_runnable_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node"
+                  ],
+                  "critical_selected_nodes": [
+                    "critical-localization_node-00001--localization_node",
+                    "critical-localization_node-00004--localization_node",
+                    "critical-localization_node-00005--localization_node",
+                    "critical-localization_node-00007--localization_node",
+                    "critical-localization_node-00008--localization_node",
+                    "critical-navigation_algo_node-00003--navigation_algo_node",
+                    "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                    "critical-pointcloud_to_laserscan_node-00006--pointcloud_to_laserscan_node"
+                  ],
+                  "end_timestamp_us": 90000,
+                  "max_cpu_utilization": 0.625,
+                  "max_gpu_utilization": 0.0,
+                  "reason": "critical_deadline_miss",
+                  "running_agent_nodes": [
+                    "agent-caption-pipeline-00018000-001--image_captioning",
+                    "agent-caption-pipeline-00018000-001--text_to_speech",
+                    "agent-caption-pipeline-00018000-001--text_translation"
+                  ],
+                  "start_timestamp_us": 0,
+                  "target_node_id": "localization_node",
+                  "target_node_instance_id": "critical-localization_node-00004--localization_node"
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "agent_cpu_reservation_cores": 0.5,
+            "agent_starvation_boost_after_us": 500000
+          },
+          "proposed_heuristic_change": "Boost agent nodes after bounded waiting time while keeping critical fit checks.",
+          "regression_risk": "Can increase critical contention if the boost threshold is too low.",
+          "scheduler_defect_summary": "deadline_miss: Concurrent execution of agent tasks (image_captioning, text_to_speech, text_translation) increased CPU utilization (max 62.5%), causing the critical localization_node instance 00004 to miss its deadline.",
+          "similar_case_count": 1,
+          "workload_characterization": "large workload with agent completion latency 25000 us"
+        }
+      ],
+      "distance": 2961002.3019958558,
+      "metrics": {
+        "agent_avg_completion_time_us": 25000,
+        "critical_missed_deadline_count": 1
+      },
+      "scheduler_version": "candidate_1_branch_critical_headroom",
+      "trace_run": "case/replays/candidate_1_branch_critical_headroom/20260511-233550",
+      "workload_signature": {
+        "agent_arrival_density": 30.0,
+        "agent_release_count": 3,
+        "agent_request_count": 1,
+        "avg_agent_completion_time_us": 25000,
+        "avg_cpu_utilization": 0.1825,
+        "avg_critical_period_us": 32866,
+        "avg_gpu_utilization": 0.0,
+        "cpu_capacity": 4.0,
+        "critical_deadline_miss_rate": 0.125,
+        "critical_node_count": 3,
+        "gpu_capacity": 0,
+        "high_criticality_node_count": 2,
+        "memory_capacity": 1024,
+        "min_critical_period_us": 20000,
+        "network_capacity": 100.0,
+        "scenario_name": "home_eqa_scenario_001",
+        "scenario_path": "/home/dawnat9/code-workspace/ai4heuristic/agent4scheduler/configs/scenarios/home_eqa_scenario_001.yaml",
+        "scene_complexity": "large"
+      }
+    }
+  ],
+  "trace_findings": [
+    {
+      "affected_nodes": [
+        "critical-navigation_algo_node-00001--navigation_algo_node",
+        "critical-navigation_algo_node-00002--navigation_algo_node",
+        "critical-navigation_algo_node-00003--navigation_algo_node",
+        "critical-navigation_algo_node-00004--navigation_algo_node",
+        "critical-navigation_algo_node-00005--navigation_algo_node"
+      ],
+      "analysis_mode": "openai_llm_agent",
+      "defect_type": "Critical Deadline Miss",
+      "evidence": [
+        {
+          "file": "trace_summary.json"
+        },
+        {
+          "file": "selected_trace_windows",
+          "windows": [
+            {
+              "agent_runnable_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "agent_selected_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "center_timestamp_us": 28571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00001--localization_node",
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-navigation_algo_node-00001--navigation_algo_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00001--localization_node",
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-navigation_algo_node-00001--navigation_algo_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00001--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 78571,
+              "max_cpu_utilization": 0.8875,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 0,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00001--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "agent_selected_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "center_timestamp_us": 57571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00002--localization_node",
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-navigation_algo_node-00002--navigation_algo_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 107571,
+              "max_cpu_utilization": 0.8875,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 7571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00002--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 86571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00003--localization_node",
+                "critical-localization_node-00004--localization_node",
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-navigation_algo_node-00003--navigation_algo_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00002--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 136571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 36571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00003--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 114571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00005--localization_node",
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-navigation_algo_node-00004--navigation_algo_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 164571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 64571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00004--navigation_algo_node"
+            },
+            {
+              "agent_runnable_nodes": [],
+              "agent_selected_nodes": [],
+              "center_timestamp_us": 143571,
+              "critical_runnable_nodes": [
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-localization_node-00010--localization_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-navigation_algo_node-00007--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "critical_selected_nodes": [
+                "critical-localization_node-00006--localization_node",
+                "critical-localization_node-00007--localization_node",
+                "critical-localization_node-00008--localization_node",
+                "critical-localization_node-00009--localization_node",
+                "critical-localization_node-00010--localization_node",
+                "critical-navigation_algo_node-00005--navigation_algo_node",
+                "critical-navigation_algo_node-00006--navigation_algo_node",
+                "critical-navigation_algo_node-00007--navigation_algo_node",
+                "critical-pointcloud_to_laserscan_node-00003--pointcloud_to_laserscan_node",
+                "critical-pointcloud_to_laserscan_node-00004--pointcloud_to_laserscan_node"
+              ],
+              "end_timestamp_us": 193571,
+              "max_cpu_utilization": 0.9475,
+              "max_gpu_utilization": 0.375,
+              "reason": "critical_deadline_miss",
+              "running_agent_nodes": [
+                "agent-caption-pipeline-00018000-001--image_captioning"
+              ],
+              "start_timestamp_us": 93571,
+              "target_node_id": "navigation_algo_node",
+              "target_node_instance_id": "critical-navigation_algo_node-00005--navigation_algo_node"
+            }
+          ]
+        }
+      ],
+      "natural_language_advice": "To mitigate deadline misses, isolate the critical navigation_algo_node onto a dedicated CPU core or reduce the scheduling priority of the agent-caption-pipeline task. Consider implementing priority-based preemption or allocating more CPU resources to the critical task during high-utilization periods.",
+      "root_cause_hypothesis": "The navigation_algo_node is consistently missing deadlines due to high CPU utilization (up to 94.75%) and contention for resources, likely caused by concurrent execution of the non-critical agent-caption-pipeline task which is also running on the same system.",
+      "severity": "High"
+    }
+  ],
+  "trace_run_id": "20260513-000345",
+  "trace_run_path": "case/baseline/20260513-000345",
+  "workload_signature": {
+    "agent_arrival_density": 0.75,
+    "agent_release_count": 3,
+    "agent_request_count": 1,
+    "avg_agent_completion_time_us": 2986000,
+    "avg_cpu_utilization": 0.5475593750000001,
+    "avg_critical_period_us": 32857,
+    "avg_gpu_utilization": 0.2175,
+    "cpu_capacity": 4.0,
+    "critical_deadline_miss_rate": 0.23809523809523808,
+    "critical_node_count": 3,
+    "gpu_capacity": 2048,
+    "high_criticality_node_count": 2,
+    "memory_capacity": 4096,
+    "min_critical_period_us": 20000,
+    "network_capacity": 100.0,
+    "scenario_name": "home_eqa_scenario_001",
+    "scenario_path": "/home/dawnat9/code-workspace/ai4heuristic/agent4scheduler/configs/scenarios/home_eqa_scenario_001.yaml",
+    "scene_complexity": "large"
+  }
+}

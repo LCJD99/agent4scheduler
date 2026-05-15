@@ -6,7 +6,8 @@ metadata:
   display_name: Image Captioning
   description: Generate a caption for an image.
 
-default_predicted_latency_us: 4000
+default_predicted_latency_us: 820000
 default_resource_demand:
-  cpu_cores: 0.5
-  memory_mb: 1000
+  cpu_cores: 1.0
+  memory_mb: 384
+  gpu_vram_mb: 768

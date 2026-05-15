@@ -40,6 +40,21 @@ class AdviceGenerator:
                 },
                 "similar_case_count": len(similar_cases),
             },
+            {
+                "branch_id": "branch_navigation_guardrail",
+                "workload_characterization": f"{scene} workload with critical deadline miss rate {miss_rate:.3f}",
+                "scheduler_defect_summary": self._finding_summary(trace_findings),
+                "key_trace_refs": self._evidence(trace_findings),
+                "proposed_heuristic_change": "Preserve capacity for high-criticality navigation releases and limit low-criticality admission when navigation backlog is present.",
+                "expected_metric_impact": "Improve navigation critical completion rate while allowing controlled degradation of agent latency.",
+                "regression_risk": "May reduce agent throughput during sustained critical bursts and under-utilize spare capacity if backlog detection is too conservative.",
+                "parameters": {
+                    "agent_cpu_reservation_cores": 0.75,
+                    "agent_starvation_boost_after_us": 1_000_000,
+                    "high_criticality_only_when_backlogged": True,
+                },
+                "similar_case_count": len(similar_cases),
+            },
         ]
         return branches
 

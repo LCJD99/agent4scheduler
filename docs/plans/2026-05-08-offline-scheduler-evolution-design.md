@@ -390,7 +390,7 @@ Keep stable:
 - `WorkloadIndex.query_similar`
 - `WorkloadSignature.to_vector`
 
-### Replace: Rule-Based Trace Analyzer
+### Replace: Rule-Based Trace Analyzer (Done)
 
 Initial module:
 

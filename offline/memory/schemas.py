@@ -2,8 +2,10 @@ from typing import Any, TypedDict
 
 
 class EvolutionState(TypedDict, total=False):
+    evolution_run_id: str
     trace_run_path: str
     memory_path: str
+    replay_output_root: str
     replay_output: str
     scenario_path: str
     analyzer_config_path: str

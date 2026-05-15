@@ -6,7 +6,7 @@ metadata:
   display_name: Navigation Algo Node
   description: Run the navigation algorithm for motion control.
 
-default_predicted_latency_us: 6000
+default_predicted_latency_us: 19000
 default_resource_demand:
   cpu_cores: 1.0
   memory_mb: 256

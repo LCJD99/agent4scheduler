@@ -25,6 +25,29 @@ def test_generator_releases_periodic_critical_node_on_tick_boundary():
     assert events[0].tool_name == "local_planner_node"
 
 
+def test_generator_releases_non_tick_aligned_critical_node_on_next_tick():
+    generator = WorkloadGenerator(
+        critical_tasks=[
+            CriticalTaskSpec(
+                node_id="navigation_algo_node",
+                tool_name="navigation_algo_node",
+                period_us=28_571,
+                criticality="high",
+                predicted_latency_us=10_000,
+                resource_demand=ResourceVector(cpu_cores=1.0),
+            )
+        ],
+    )
+
+    release_timestamps = []
+    for timestamp_us in range(0, 90_000, 1_000):
+        release_timestamps.extend(
+            release.timestamp_us for release in generator.release(timestamp_us=timestamp_us)
+        )
+
+    assert release_timestamps == [0, 29_000, 58_000, 86_000]
+
+
 def test_generator_releases_agent_roots_on_arrival_and_dependents_after_completion():
     generator = WorkloadGenerator(
         agent_arrivals=[

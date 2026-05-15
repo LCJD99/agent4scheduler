@@ -8,10 +8,11 @@ def test_load_scenario_bundle_resolves_tool_task_and_scenario():
     assert bundle.scenario.metadata.name == "home_eqa_scenario_001"
     assert bundle.scenario.scene_complexity == "large"
     assert bundle.scenario.tick_us == 1_000
-    assert bundle.scenario.duration_us == 100_000
+    assert bundle.scenario.duration_us == 4_000_000
     assert bundle.scenario.system_capacity == ResourceVector(
         cpu_cores=4.0,
-        memory_mb=1024,
+        memory_mb=4096,
+        gpu_vram_mb=2048,
         network_mbps=100.0,
     )
     assert bundle.scenario.agent_requests[0].request_id == "agent-caption-pipeline"
@@ -26,10 +27,11 @@ def test_load_scenario_bundle_resolves_tool_task_and_scenario():
     assert "safe_navigation_task" in bundle.tasks
     assert "agent_caption_pipeline_task" in bundle.tasks
     tool = bundle.tools["image_captioning"]
-    assert tool.default_predicted_latency_us == 4_000
+    assert tool.default_predicted_latency_us == 820_000
     assert tool.default_resource_demand == ResourceVector(
-        cpu_cores=0.5,
-        memory_mb=1000,
+        cpu_cores=1.0,
+        memory_mb=384,
+        gpu_vram_mb=768,
     )
     task = bundle.tasks["safe_navigation_task"]
     assert [node.node_id for node in task.critical_nodes] == [
@@ -43,10 +45,18 @@ def test_load_scenario_bundle_resolves_tool_task_and_scenario():
     assert task.critical_nodes[1].period_us == 50_000
     assert task.critical_nodes[1].criticality == "medium"
     assert task.critical_nodes[1].tool_name == "pointcloud_to_laserscan_node"
-    assert task.critical_nodes[2].period_us == 28_600
+    assert task.critical_nodes[2].period_us == 28_571
     assert task.critical_nodes[2].criticality == "high"
     assert task.critical_nodes[2].tool_name == "navigation_algo_node"
     assert task.critical_nodes[0].resource_demand == ResourceVector(
-        cpu_cores=0.5,
+        cpu_cores=0.24,
         memory_mb=128,
+    )
+    assert task.critical_nodes[1].resource_demand == ResourceVector(
+        cpu_cores=0.55,
+        memory_mb=192,
+    )
+    assert task.critical_nodes[2].resource_demand == ResourceVector(
+        cpu_cores=1.0,
+        memory_mb=256,
     )

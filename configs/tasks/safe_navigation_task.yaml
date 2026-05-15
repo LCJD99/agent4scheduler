@@ -15,23 +15,23 @@ critical_nodes:
     tool_name: localization_node
     period_us: 20000
     criticality: high
-    predicted_latency_us: 4000
+    predicted_latency_us: 11000
     resource_demand:
-      cpu_cores: 0.5
+      cpu_cores: 0.24
       memory_mb: 128
   - node_id: pointcloud_to_laserscan_node
     tool_name: pointcloud_to_laserscan_node
     period_us: 50000
     criticality: medium
-    predicted_latency_us: 8000
+    predicted_latency_us: 17000
     resource_demand:
-      cpu_cores: 1.0
-      memory_mb: 256
+      cpu_cores: 0.55
+      memory_mb: 192
   - node_id: navigation_algo_node
     tool_name: navigation_algo_node
-    period_us: 28600
+    period_us: 28571
     criticality: high
-    predicted_latency_us: 6000
+    predicted_latency_us: 19000
     resource_demand:
       cpu_cores: 1.0
       memory_mb: 256

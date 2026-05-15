@@ -6,7 +6,8 @@ metadata:
   display_name: Object Detection
   description: Detect objects in an image.
 
-default_predicted_latency_us: 2000
+default_predicted_latency_us: 520000
 default_resource_demand:
   cpu_cores: 1.0
-  memory_mb: 256
+  memory_mb: 384
+  gpu_vram_mb: 768
